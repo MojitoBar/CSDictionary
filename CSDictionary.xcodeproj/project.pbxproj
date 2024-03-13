@@ -14,6 +14,8 @@
 		B7039B342BA1A1FB00626A9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7039B322BA1A1FB00626A9B /* LaunchScreen.storyboard */; };
 		B7039B3F2BA1A4B800626A9B /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7039B3E2BA1A4B800626A9B /* TabbarViewController.swift */; };
 		B7039B422BA1A87D00626A9B /* CSListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7039B412BA1A87D00626A9B /* CSListView.swift */; };
+		B7039B452BA1AEBF00626A9B /* CSListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7039B442BA1AEBF00626A9B /* CSListViewModel.swift */; };
+		B7039B482BA1AEF900626A9B /* CSItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7039B472BA1AEF900626A9B /* CSItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		B7039B352BA1A1FB00626A9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7039B3E2BA1A4B800626A9B /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		B7039B412BA1A87D00626A9B /* CSListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSListView.swift; sourceTree = "<group>"; };
+		B7039B442BA1AEBF00626A9B /* CSListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSListViewModel.swift; sourceTree = "<group>"; };
+		B7039B472BA1AEF900626A9B /* CSItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +62,10 @@
 		B7039B262BA1A1FB00626A9B /* CSDictionary */ = {
 			isa = PBXGroup;
 			children = (
-				B7039B402BA1A87300626A9B /* View */,
+				B7039B462BA1AEEA00626A9B /* Model */,
 				B7039B3C2BA1A48400626A9B /* Application */,
+				B7039B402BA1A87300626A9B /* View */,
+				B7039B432BA1AEAF00626A9B /* ViewModel */,
 				B7039B3D2BA1A49000626A9B /* ViewController */,
 				B7039B3B2BA1A45100626A9B /* Resources */,
 			);
@@ -100,6 +106,22 @@
 				B7039B412BA1A87D00626A9B /* CSListView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		B7039B432BA1AEAF00626A9B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B7039B442BA1AEBF00626A9B /* CSListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B7039B462BA1AEEA00626A9B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B7039B472BA1AEF900626A9B /* CSItem.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,9 +196,11 @@
 			files = (
 				B7039B3F2BA1A4B800626A9B /* TabbarViewController.swift in Sources */,
 				B7039B2C2BA1A1FB00626A9B /* CSListViewController.swift in Sources */,
+				B7039B452BA1AEBF00626A9B /* CSListViewModel.swift in Sources */,
 				B7039B282BA1A1FB00626A9B /* AppDelegate.swift in Sources */,
 				B7039B2A2BA1A1FB00626A9B /* SceneDelegate.swift in Sources */,
 				B7039B422BA1A87D00626A9B /* CSListView.swift in Sources */,
+				B7039B482BA1AEF900626A9B /* CSItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

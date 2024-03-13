@@ -1,13 +1,11 @@
-//
-//  CSListView.swift
-//  CSDictionary
-//
-//  Created by 주동석 on 3/13/24.
-//
-
 import UIKit
+import Combine
 
 final class CSListView: UIView {
+    private let sections: [String] = ["자료구조", "알고리즘", "네트워크"]
+    private let viewModel = CSListViewModel()
+    private var cancellable = Set<AnyCancellable>()
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = UIColor(resource: .background)
@@ -17,12 +15,21 @@ final class CSListView: UIView {
     
     init() {
         super.init(frame: .zero)
+        setBinding()
         setLayout()
         setTableView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setBinding() {
+        viewModel.$items
+            .sink { [weak self] items in
+                self?.tableView.reloadData()
+            }
+            .store(in: &cancellable)
     }
     
     private func setLayout() {
@@ -40,19 +47,36 @@ final class CSListView: UIView {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "header")
     }
 }
 
 extension CSListView: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        if section == 0 {
+            return 3
+        } else if section == 1 {
+            return 3
+        } else {
+            return 4
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "Cell \(indexPath.row)"
+        cell.textLabel?.text = viewModel.fetchItem(at: indexPath.row).name
         cell.backgroundColor = UIColor(resource: .background)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header")
+        header?.textLabel?.text = sections[section]
+        return header
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
