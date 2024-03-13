@@ -1,6 +1,12 @@
 import UIKit
 
 final class TabbarViewController: UITabBarController {
+    private let tabBarTitle: [(title: String, image: String)] = [
+        ("CS 리스트", "list.bullet"),
+        ("랜덤 카드", "note.text"),
+        ("문제집", "book.pages"),
+        ("환경설정", "gear")
+    ]
     override func viewDidLoad() {
         super.viewDidLoad()
         setTabBarItem()
@@ -8,27 +14,19 @@ final class TabbarViewController: UITabBarController {
     }
     
     func setTabBarItem() {
-        let listViewController = ListViewController()
-        let listTabBarItem = UITabBarItem(title: "CS 리스트", image: UIImage(systemName: "list.bullet"), tag: 0)
-        listViewController.tabBarItem = listTabBarItem
+        var viewControllerList = [UIViewController]()
+        for (index, item) in tabBarTitle.enumerated() {
+            let listViewController = CSListViewController()
+            let listTabBarItem = UITabBarItem(title: item.title, image: UIImage(systemName: item.image), tag: index)
+            listViewController.tabBarItem = listTabBarItem
+            viewControllerList.append(listViewController)
+        }
         
-        let listViewController1 = ListViewController()
-        let listTabBarItem1 = UITabBarItem(title: "랜덤 카드", image: UIImage(systemName: "note.text"), tag: 1)
-        listViewController1.tabBarItem = listTabBarItem1
-        
-        let listViewController2 = ListViewController()
-        let listTabBarItem2 = UITabBarItem(title: "문제집", image: UIImage(systemName: "book.pages"), tag: 2)
-        listViewController2.tabBarItem = listTabBarItem2
-    
-        let listViewController3 = ListViewController()
-        let listTabBarItem3 = UITabBarItem(title: "환경설정", image: UIImage(systemName: "gear"), tag: 3)
-        listViewController3.tabBarItem = listTabBarItem3
-        
-        viewControllers = [listViewController, listViewController1, listViewController2, listViewController3]
+        viewControllers = viewControllerList
     }
     
     func setLayout() {
         tabBar.backgroundColor = UIColor(resource: .tabbar)
-        tabBar.tintColor = UIColor(resource: .primary)
+        tabBar.tintColor = UIColor(resource: .appPrimary)
     }
 }
