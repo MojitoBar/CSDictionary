@@ -4,7 +4,11 @@ final class CSListViewModel {
     @Published private(set) var items: [CSItem] = [CSItem](repeating: CSItem(
         name: "Stack",
         shortDescription: """
-        스택(Stack)은 컴퓨터 과학에서 사용하는 기본적인 자료구조로, 데이터를 선형으로 저장합니다. 후입선출(Last In, First Out, LIFO) 원칙에 따라 가장 마지막에 추가된 요소가 가장 먼저 제거됩니다. 스택의 주요 연산에는 데이터를 추가하는 '푸시(Push)'와 가장 상단의 데이터를 제거하는 '팝(Pop)'이 있습니다.
+        스택(Stack)은 컴퓨터 과학에서 사용하는 기본적인 자료구조로, 데이터를 선형으로 저장합니다. 
+        
+        후입선출(Last In, First Out, LIFO) 원칙에 따라 가장 마지막에 추가된 요소가 가장 먼저 제거됩니다.
+        
+        스택의 주요 연산에는 데이터를 추가하는 '푸시(Push)'와 가장 상단의 데이터를 제거하는 '팝(Pop)'이 있습니다.
         """,
         description: """
         스택은 컴퓨터 프로그래밍에서 널리 사용되는 중요한 자료구조입니다. 후입선출(Last In, First Out, LIFO) 원칙을 따르는 스택은 마치 책 더미나 식기 세척기에 쌓인 접시처럼 생각할 수 있습니다. 새로운 요소는 항상 상단에 추가되며, 요소를 제거할 때도 상단에서부터 이루어집니다. 이러한 특성 때문에, 스택은 다음과 같은 두 가지 기본적인 연산을 지원합니다:

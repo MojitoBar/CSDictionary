@@ -18,6 +18,9 @@
 		B7039B482BA1AEF900626A9B /* CSItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7039B472BA1AEF900626A9B /* CSItem.swift */; };
 		B7A7952B2BA32834009B6171 /* CSDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A7952A2BA32834009B6171 /* CSDetailViewController.swift */; };
 		B7A7952D2BA3296B009B6171 /* CSDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A7952C2BA3296B009B6171 /* CSDetailView.swift */; };
+		B7A795302BA3303A009B6171 /* CalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A7952F2BA3303A009B6171 /* CalloutView.swift */; };
+		B7A795322BA332C5009B6171 /* CSDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A795312BA332C5009B6171 /* CSDetailViewModel.swift */; };
+		B7A795372BA33BDC009B6171 /* CategoryLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A795362BA33BDC009B6171 /* CategoryLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		B7039B472BA1AEF900626A9B /* CSItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSItem.swift; sourceTree = "<group>"; };
 		B7A7952A2BA32834009B6171 /* CSDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSDetailViewController.swift; sourceTree = "<group>"; };
 		B7A7952C2BA3296B009B6171 /* CSDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSDetailView.swift; sourceTree = "<group>"; };
+		B7A7952F2BA3303A009B6171 /* CalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalloutView.swift; sourceTree = "<group>"; };
+		B7A795312BA332C5009B6171 /* CSDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSDetailViewModel.swift; sourceTree = "<group>"; };
+		B7A795362BA33BDC009B6171 /* CategoryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,9 +114,8 @@
 		B7039B402BA1A87300626A9B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B7A7952E2BA32FFC009B6171 /* New Group */,
+				B7A7952E2BA32FFC009B6171 /* CSDetailView */,
 				B7039B412BA1A87D00626A9B /* CSListView.swift */,
-				B7A7952C2BA3296B009B6171 /* CSDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -119,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				B7039B442BA1AEBF00626A9B /* CSListViewModel.swift */,
+				B7A795312BA332C5009B6171 /* CSDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -131,11 +137,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		B7A7952E2BA32FFC009B6171 /* New Group */ = {
+		B7A7952E2BA32FFC009B6171 /* CSDetailView */ = {
 			isa = PBXGroup;
 			children = (
+				B7A7952C2BA3296B009B6171 /* CSDetailView.swift */,
+				B7A7952F2BA3303A009B6171 /* CalloutView.swift */,
+				B7A795362BA33BDC009B6171 /* CategoryLabel.swift */,
 			);
-			path = "New Group";
+			path = CSDetailView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,12 +217,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7A795372BA33BDC009B6171 /* CategoryLabel.swift in Sources */,
 				B7039B3F2BA1A4B800626A9B /* TabbarViewController.swift in Sources */,
 				B7039B2C2BA1A1FB00626A9B /* CSListViewController.swift in Sources */,
 				B7039B452BA1AEBF00626A9B /* CSListViewModel.swift in Sources */,
+				B7A795302BA3303A009B6171 /* CalloutView.swift in Sources */,
 				B7039B282BA1A1FB00626A9B /* AppDelegate.swift in Sources */,
 				B7039B2A2BA1A1FB00626A9B /* SceneDelegate.swift in Sources */,
 				B7039B422BA1A87D00626A9B /* CSListView.swift in Sources */,
+				B7A795322BA332C5009B6171 /* CSDetailViewModel.swift in Sources */,
 				B7039B482BA1AEF900626A9B /* CSItem.swift in Sources */,
 				B7A7952B2BA32834009B6171 /* CSDetailViewController.swift in Sources */,
 				B7A7952D2BA3296B009B6171 /* CSDetailView.swift in Sources */,

@@ -52,7 +52,7 @@ extension CSListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let detailVC = CSDetailViewController()
+        let detailVC = CSDetailViewController(item: viewModel.fetchItem(at: indexPath.row))
         detailVC.title = viewModel.fetchItem(at: indexPath.row).name
         navigationController?.pushViewController(detailVC, animated: true)
     }
