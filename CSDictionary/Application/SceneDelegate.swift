@@ -18,6 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let viewController = TabbarViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
+        viewController.title = "CS 리스트"
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         
