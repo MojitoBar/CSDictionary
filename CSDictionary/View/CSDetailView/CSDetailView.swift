@@ -48,11 +48,22 @@ final class CSDetailView: UIView {
     private let detailDescription: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         label.textColor = UIColor(resource: .text)
         label.numberOfLines = 0
         return label
     }()
+    
+    private let videoLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        label.textColor = UIColor(resource: .text)
+        label.text = "관련 영상"
+        return label
+    }()
+    
+    private let videoCollectionView = CSVideoCollectionView()
     
     init(viewModel: CSDetailViewModel) {
         super.init(frame: .zero)
@@ -86,6 +97,8 @@ final class CSDetailView: UIView {
         scrollView.addSubview(calloutView)
         scrollView.addSubview(detailLabel)
         scrollView.addSubview(detailDescription)
+        scrollView.addSubview(videoLabel)
+        scrollView.addSubview(videoCollectionView)
         
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
@@ -113,7 +126,21 @@ final class CSDetailView: UIView {
             detailDescription.topAnchor.constraint(equalTo: detailLabel.bottomAnchor, constant: 10),
             detailDescription.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             detailDescription.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            detailDescription.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -20),
+            
+            videoLabel.topAnchor.constraint(equalTo: detailDescription.bottomAnchor, constant: 20),
+            videoLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+
+            videoCollectionView.topAnchor.constraint(equalTo: videoLabel.bottomAnchor, constant: 10),
+            videoCollectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            videoCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            videoCollectionView.heightAnchor.constraint(equalToConstant: 130),
+            
+            videoCollectionView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -20),
         ])
+    }
+    
+    func collectionViewConfigure(delegate: UICollectionViewDelegate & UICollectionViewDataSource) {
+        videoCollectionView.delegate = delegate
+        videoCollectionView.dataSource = delegate
     }
 }

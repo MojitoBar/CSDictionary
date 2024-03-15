@@ -14,7 +14,10 @@ enum DB {
             
             큐는 그 구현 방식에 따라 여러 가지 형태로 나타날 수 있습니다. 예를 들어, 원형 큐(Circular Queue)는 배열을 사용하여 고정된 크기의 큐를 효율적으로 관리할 수 있도록 합니다. 또한, 우선순위 큐(Priority Queue)는 요소가 우선순위에 따라 정렬되며, 우선순위가 가장 높은 요소가 먼저 제거됩니다.
             """,
-            category: "자료구조"
+            category: "자료구조",
+            urls: ["https://www.youtube.com/watch?v=cyf4HycvxXg",
+                  "https://www.youtube.com/watch?v=3Z2TTzTe7bE&pp=ygUGCHF1ZXVl",
+                  "https://www.youtube.com/watch?v=BdsyG5yP1cQ&pp=ygUGCHF1ZXVl"]
         ),
         CSItem(
             name: "LinkedList",
