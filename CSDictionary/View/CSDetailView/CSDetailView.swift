@@ -88,15 +88,15 @@ final class CSDetailView: UIView {
         scrollView.addSubview(detailDescription)
         
         NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             scrollView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
             scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20),
             
-            titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20),
+            titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
             titleLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             
-            categoryLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 25),
+            categoryLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20),
             categoryLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
         
             summaryLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),

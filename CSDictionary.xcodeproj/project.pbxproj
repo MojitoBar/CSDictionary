@@ -21,6 +21,8 @@
 		B7A795302BA3303A009B6171 /* CalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A7952F2BA3303A009B6171 /* CalloutView.swift */; };
 		B7A795322BA332C5009B6171 /* CSDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A795312BA332C5009B6171 /* CSDetailViewModel.swift */; };
 		B7A795372BA33BDC009B6171 /* CategoryLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A795362BA33BDC009B6171 /* CategoryLabel.swift */; };
+		B7C524462BA43E600076D63A /* CSDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C524452BA43E600076D63A /* CSDatabase.swift */; };
+		B7C524482BA43EF60076D63A /* CSItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C524472BA43EF60076D63A /* CSItemService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		B7A7952F2BA3303A009B6171 /* CalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalloutView.swift; sourceTree = "<group>"; };
 		B7A795312BA332C5009B6171 /* CSDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSDetailViewModel.swift; sourceTree = "<group>"; };
 		B7A795362BA33BDC009B6171 /* CategoryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLabel.swift; sourceTree = "<group>"; };
+		B7C524452BA43E600076D63A /* CSDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSDatabase.swift; sourceTree = "<group>"; };
+		B7C524472BA43EF60076D63A /* CSItemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSItemService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,11 +76,13 @@
 		B7039B262BA1A1FB00626A9B /* CSDictionary */ = {
 			isa = PBXGroup;
 			children = (
-				B7039B462BA1AEEA00626A9B /* Model */,
 				B7039B3C2BA1A48400626A9B /* Application */,
+				B7039B462BA1AEEA00626A9B /* Model */,
 				B7039B402BA1A87300626A9B /* View */,
 				B7039B432BA1AEAF00626A9B /* ViewModel */,
 				B7039B3D2BA1A49000626A9B /* ViewController */,
+				B7C524442BA43E4B0076D63A /* Service */,
+				B7C524432BA43E3D0076D63A /* Repository */,
 				B7039B3B2BA1A45100626A9B /* Resources */,
 			);
 			path = CSDictionary;
@@ -145,6 +151,22 @@
 				B7A795362BA33BDC009B6171 /* CategoryLabel.swift */,
 			);
 			path = CSDetailView;
+			sourceTree = "<group>";
+		};
+		B7C524432BA43E3D0076D63A /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				B7C524452BA43E600076D63A /* CSDatabase.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		B7C524442BA43E4B0076D63A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B7C524472BA43EF60076D63A /* CSItemService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,7 +249,9 @@
 				B7039B422BA1A87D00626A9B /* CSListView.swift in Sources */,
 				B7A795322BA332C5009B6171 /* CSDetailViewModel.swift in Sources */,
 				B7039B482BA1AEF900626A9B /* CSItem.swift in Sources */,
+				B7C524482BA43EF60076D63A /* CSItemService.swift in Sources */,
 				B7A7952B2BA32834009B6171 /* CSDetailViewController.swift in Sources */,
+				B7C524462BA43E600076D63A /* CSDatabase.swift in Sources */,
 				B7A7952D2BA3296B009B6171 /* CSDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
