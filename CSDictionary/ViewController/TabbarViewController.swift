@@ -7,13 +7,14 @@ final class TabbarViewController: UITabBarController {
         ("문제집", "book.pages"),
         ("환경설정", "gear")
     ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setTabBarItem()
         setLayout()
     }
     
-    func setTabBarItem() {
+    private func setTabBarItem() {
         var viewControllerList = [UIViewController]()
         for (index, item) in tabBarTitle.enumerated() {
             let listViewController = CSListViewController()
@@ -25,7 +26,7 @@ final class TabbarViewController: UITabBarController {
         viewControllers = viewControllerList
     }
     
-    func setLayout() {
+    private func setLayout() {
         tabBar.backgroundColor = UIColor(resource: .tabbar)
         tabBar.tintColor = UIColor(resource: .appPrimary)
     }

@@ -1,6 +1,7 @@
 import UIKit
 
 final class CSListViewController: UIViewController {
+    private let searchController = UISearchController(searchResultsController: nil)
     private let viewModel = CSListViewModel()
     private var listView: CSListView {
         view as! CSListView
@@ -13,6 +14,21 @@ final class CSListViewController: UIViewController {
     
     override func loadView() {
         view = CSListView(viewModel: viewModel)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.navigationBar.topItem?.title = "CS 리스트"
+        setSearchController()
+    }
+    
+    private func setSearchController() {
+        searchController.searchBar.placeholder = "CS 검색"
+        searchController.searchBar.scopeButtonTitles = ["전체", "자료구조", "알고리즘", "네트워크", "운영체제"]
+        searchController.searchBar.showsScopeBar = true
+        searchController.searchResultsUpdater = self
+        navigationController?.navigationBar.topItem?.hidesSearchBarWhenScrolling = false
+        navigationController?.navigationBar.topItem?.searchController = searchController
     }
     
     private func listViewConfigure() {
@@ -58,5 +74,13 @@ extension CSListViewController: UITableViewDelegate, UITableViewDataSource {
             let detailVC = CSDetailViewController(item: item)
             navigationController?.pushViewController(detailVC, animated: true)
         }
+    }
+}
+
+extension CSListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let searchText = searchController.searchBar.text else { return }
+        dump(searchController.searchBar.selectedScopeButtonIndex)
+        dump(searchText)
     }
 }
