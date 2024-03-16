@@ -26,6 +26,9 @@
 		B7C5244A2BA44F990076D63A /* CSVideoCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C524492BA44F990076D63A /* CSVideoCollectionView.swift */; };
 		B7C5244C2BA450AB0076D63A /* CSVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5244B2BA450AB0076D63A /* CSVideoCell.swift */; };
 		B7C5244E2BA451840076D63A /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5244D2BA451840076D63A /* ImageService.swift */; };
+		B7EDEC6F2BA5C2C6009367E2 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EDEC6E2BA5C2C6009367E2 /* SettingViewController.swift */; };
+		B7EDEC712BA5C2ED009367E2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EDEC702BA5C2ED009367E2 /* SettingView.swift */; };
+		B7EDEC732BA5C9D4009367E2 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EDEC722BA5C9D4009367E2 /* SettingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		B7C524492BA44F990076D63A /* CSVideoCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVideoCollectionView.swift; sourceTree = "<group>"; };
 		B7C5244B2BA450AB0076D63A /* CSVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVideoCell.swift; sourceTree = "<group>"; };
 		B7C5244D2BA451840076D63A /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		B7EDEC6E2BA5C2C6009367E2 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		B7EDEC702BA5C2ED009367E2 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		B7EDEC722BA5C9D4009367E2 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +125,7 @@
 				B7039B3E2BA1A4B800626A9B /* TabbarViewController.swift */,
 				B7039B2B2BA1A1FB00626A9B /* CSListViewController.swift */,
 				B7A7952A2BA32834009B6171 /* CSDetailViewController.swift */,
+				B7EDEC6E2BA5C2C6009367E2 /* SettingViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -128,6 +135,7 @@
 			children = (
 				B7A7952E2BA32FFC009B6171 /* CSDetailView */,
 				B7039B412BA1A87D00626A9B /* CSListView.swift */,
+				B7EDEC702BA5C2ED009367E2 /* SettingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -137,6 +145,7 @@
 			children = (
 				B7039B442BA1AEBF00626A9B /* CSListViewModel.swift */,
 				B7A795312BA332C5009B6171 /* CSDetailViewModel.swift */,
+				B7EDEC722BA5C9D4009367E2 /* SettingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -253,14 +262,17 @@
 				B7039B2C2BA1A1FB00626A9B /* CSListViewController.swift in Sources */,
 				B7039B452BA1AEBF00626A9B /* CSListViewModel.swift in Sources */,
 				B7A795302BA3303A009B6171 /* CalloutView.swift in Sources */,
+				B7EDEC6F2BA5C2C6009367E2 /* SettingViewController.swift in Sources */,
 				B7039B282BA1A1FB00626A9B /* AppDelegate.swift in Sources */,
 				B7039B2A2BA1A1FB00626A9B /* SceneDelegate.swift in Sources */,
 				B7039B422BA1A87D00626A9B /* CSListView.swift in Sources */,
 				B7A795322BA332C5009B6171 /* CSDetailViewModel.swift in Sources */,
+				B7EDEC712BA5C2ED009367E2 /* SettingView.swift in Sources */,
 				B7C5244C2BA450AB0076D63A /* CSVideoCell.swift in Sources */,
 				B7039B482BA1AEF900626A9B /* CSItem.swift in Sources */,
 				B7C524482BA43EF60076D63A /* CSItemService.swift in Sources */,
 				B7A7952B2BA32834009B6171 /* CSDetailViewController.swift in Sources */,
+				B7EDEC732BA5C9D4009367E2 /* SettingViewModel.swift in Sources */,
 				B7C5244E2BA451840076D63A /* ImageService.swift in Sources */,
 				B7C5244A2BA44F990076D63A /* CSVideoCollectionView.swift in Sources */,
 				B7C524462BA43E600076D63A /* CSDatabase.swift in Sources */,

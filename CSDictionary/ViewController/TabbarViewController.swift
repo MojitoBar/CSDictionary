@@ -15,14 +15,11 @@ final class TabbarViewController: UITabBarController {
     }
     
     private func setTabBarItem() {
-        var viewControllerList = [UIViewController]()
+        var viewControllerList = [CSListViewController(), CSListViewController(), CSListViewController(), SettingViewController()]
         for (index, item) in tabBarTitle.enumerated() {
-            let listViewController = CSListViewController()
             let listTabBarItem = UITabBarItem(title: item.title, image: UIImage(systemName: item.image), tag: index)
-            listViewController.tabBarItem = listTabBarItem
-            viewControllerList.append(listViewController)
+            viewControllerList[index].tabBarItem = listTabBarItem   
         }
-        
         viewControllers = viewControllerList
     }
     

@@ -50,6 +50,12 @@ extension CSListViewController: UITableViewDelegate, UITableViewDataSource {
         header?.textLabel?.text = viewModel.sections[section]
         return header
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = viewModel.item(at: indexPath)
+        let detailVC = CSDetailViewController(item: item)
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
 
 
