@@ -1,38 +1,35 @@
 import Foundation
 
+struct StaticData {
+    static let sections: [String] = ["자료구조", "알고리즘", "네트워크"]
+    static let searchSection: [String] = ["검색 결과"]
+}
+
 final class CSListViewModel {
     @Published private(set) var items: [CSItem] = []
-    private let sections: [String] = ["자료구조", "알고리즘", "네트워크"]
+    private var filteredItems: [CSItem] = []
     
     init() {
         items = CSItemService.readItems()
     }
     
-    func getSectionsCount() -> Int {
-        return sections.count
+    var isSearching: Bool = false
+    
+    var sections: [String] {
+        isSearching ? ["검색 결과"] : StaticData.sections
     }
     
-    func getSection(at: Int) -> String {
-        return sections[at]
+    func item(at indexPath: IndexPath) -> CSItem {
+        isSearching ? filteredItems[indexPath.row] : items.filter { $0.category == sections[indexPath.section] }[indexPath.row]
     }
     
-    func getItemsCount() -> Int {
-        return items.count
+    func itemsCount(in section: Int) -> Int {
+        let sectionItems = items.filter { $0.category == sections[section] }
+        return isSearching ? filteredItems.count : sectionItems.count
     }
     
-    func fetchItems() -> [CSItem] {
-        return items
-    }
-    
-    func fetchItem(at index: Int) -> CSItem {
-        return items[index]
-    }
-    
-    func getItemDictionary() -> [String: [CSItem]] {
-        var dictionary = [String: [CSItem]]()
-        for section in sections {
-            dictionary[section] = items.filter { $0.category == section }
-        }
-        return dictionary
+    func filterItems(for searchText: String) {
+        isSearching = !searchText.isEmpty
+        filteredItems = items.filter { $0.name.lowercased().contains(searchText.lowercased()) }
     }
 }

@@ -2,9 +2,10 @@ import UIKit
 import Combine
 
 final class CSListView: UIView {
+    private let searchController = UISearchController(searchResultsController: nil)
     private var cancellable = Set<AnyCancellable>()
     private var viewModel: CSListViewModel!
-    private let tableView: UITableView = {
+    let tableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = UIColor(resource: .background)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -45,6 +46,13 @@ final class CSListView: UIView {
     private func setTableView() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "header")
+    }
+    
+    func setSearchController(delegate: UISearchResultsUpdating, navigationController: UINavigationController) {
+        searchController.searchBar.placeholder = "CS 검색"
+        searchController.searchResultsUpdater = delegate
+        navigationController.navigationBar.topItem?.hidesSearchBarWhenScrolling = false
+        navigationController.navigationBar.topItem?.searchController = searchController
     }
     
     func setDelegate(delegate: UITableViewDelegate) {

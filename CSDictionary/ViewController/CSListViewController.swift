@@ -1,7 +1,6 @@
 import UIKit
 
 final class CSListViewController: UIViewController {
-    private let searchController = UISearchController(searchResultsController: nil)
     private let viewModel = CSListViewModel()
     private var listView: CSListView {
         view as! CSListView
@@ -19,16 +18,7 @@ final class CSListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.navigationBar.topItem?.title = "CS 리스트"
-        setSearchController()
-    }
-    
-    private func setSearchController() {
-        searchController.searchBar.placeholder = "CS 검색"
-        searchController.searchBar.scopeButtonTitles = ["전체", "자료구조", "알고리즘", "네트워크", "운영체제"]
-        searchController.searchBar.showsScopeBar = true
-        searchController.searchResultsUpdater = self
-        navigationController?.navigationBar.topItem?.hidesSearchBarWhenScrolling = false
-        navigationController?.navigationBar.topItem?.searchController = searchController
+        listView.setSearchController(delegate: self, navigationController: navigationController!)
     }
     
     private func listViewConfigure() {
@@ -39,23 +29,17 @@ final class CSListViewController: UIViewController {
 
 extension CSListViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.getSectionsCount()
+        viewModel.sections.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let itemDictionary = viewModel.getItemDictionary()
-        if let items = itemDictionary[viewModel.getSection(at: section)] {
-            return items.count
-        }
-        return 0
+        viewModel.itemsCount(in: section)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let itemDictionary = viewModel.getItemDictionary()
-        if let items = itemDictionary[viewModel.getSection(at: indexPath.section)] {
-            cell.textLabel?.text = items[indexPath.row].name
-        }
+        let item = viewModel.item(at: indexPath)
+        cell.textLabel?.text = item.name
         cell.accessoryType = .disclosureIndicator
         cell.backgroundColor = UIColor(resource: .background)
         return cell
@@ -63,24 +47,17 @@ extension CSListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header")
-        header?.textLabel?.text = viewModel.getSection(at: section)
+        header?.textLabel?.text = viewModel.sections[section]
         return header
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let itemDictionary = viewModel.getItemDictionary()
-        if let items = itemDictionary[viewModel.getSection(at: indexPath.section)] {
-            let item = items[indexPath.row]
-            let detailVC = CSDetailViewController(item: item)
-            navigationController?.pushViewController(detailVC, animated: true)
-        }
     }
 }
 
+
 extension CSListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        guard let searchText = searchController.searchBar.text else { return }
-        dump(searchController.searchBar.selectedScopeButtonIndex)
-        dump(searchText)
+        guard let searchText = searchController.searchBar.text?.lowercased() else { return }
+        viewModel.isSearching = !searchText.isEmpty
+        viewModel.filterItems(for: searchText)
+        listView.tableView.reloadData()
     }
 }
