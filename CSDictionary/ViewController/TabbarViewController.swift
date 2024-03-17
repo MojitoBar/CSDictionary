@@ -15,7 +15,7 @@ final class TabbarViewController: UITabBarController {
     }
     
     private func setTabBarItem() {
-        var viewControllerList = [CSListViewController(), CSListViewController(), CSListViewController(), SettingViewController()]
+        let viewControllerList = [CSListViewController(), RandomCardViewController(), CSListViewController(), SettingViewController()]
         for (index, item) in tabBarTitle.enumerated() {
             let listTabBarItem = UITabBarItem(title: item.title, image: UIImage(systemName: item.image), tag: index)
             viewControllerList[index].tabBarItem = listTabBarItem   

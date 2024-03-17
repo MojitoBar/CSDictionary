@@ -1,11 +1,13 @@
 import UIKit
 
 final class SettingViewController: UIViewController {
-    private let settingView = SettingView()
+    private var settingView: SettingView {
+        view as! SettingView
+    }
     private let viewModel = SettingViewModel()
     
     override func loadView() {
-        view = settingView
+        view = SettingView()
     }
     
     override func viewDidLoad() {
