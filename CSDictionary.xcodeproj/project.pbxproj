@@ -28,6 +28,8 @@
 		B7C5244A2BA44F990076D63A /* CSVideoCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C524492BA44F990076D63A /* CSVideoCollectionView.swift */; };
 		B7C5244C2BA450AB0076D63A /* CSVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5244B2BA450AB0076D63A /* CSVideoCell.swift */; };
 		B7C5244E2BA451840076D63A /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5244D2BA451840076D63A /* ImageService.swift */; };
+		B7ED67A72BA6D9FE0043A71F /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ED67A62BA6D9FE0043A71F /* CardView.swift */; };
+		B7ED67A92BA6DBD00043A71F /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ED67A82BA6DBD00043A71F /* CardViewModel.swift */; };
 		B7EDEC6F2BA5C2C6009367E2 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EDEC6E2BA5C2C6009367E2 /* SettingViewController.swift */; };
 		B7EDEC712BA5C2ED009367E2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EDEC702BA5C2ED009367E2 /* SettingView.swift */; };
 		B7EDEC732BA5C9D4009367E2 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EDEC722BA5C9D4009367E2 /* SettingViewModel.swift */; };
@@ -57,6 +59,8 @@
 		B7C524492BA44F990076D63A /* CSVideoCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVideoCollectionView.swift; sourceTree = "<group>"; };
 		B7C5244B2BA450AB0076D63A /* CSVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVideoCell.swift; sourceTree = "<group>"; };
 		B7C5244D2BA451840076D63A /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		B7ED67A62BA6D9FE0043A71F /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		B7ED67A82BA6DBD00043A71F /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		B7EDEC6E2BA5C2C6009367E2 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		B7EDEC702BA5C2ED009367E2 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		B7EDEC722BA5C9D4009367E2 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
@@ -138,10 +142,10 @@
 		B7039B402BA1A87300626A9B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B7ED67A52BA6D9EE0043A71F /* RandomCardView */,
 				B7A7952E2BA32FFC009B6171 /* CSDetailView */,
 				B7039B412BA1A87D00626A9B /* CSListView.swift */,
 				B7EDEC702BA5C2ED009367E2 /* SettingView.swift */,
-				B714BDFD2BA6B98A009FD0F9 /* RandomCardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -152,6 +156,7 @@
 				B7039B442BA1AEBF00626A9B /* CSListViewModel.swift */,
 				B7A795312BA332C5009B6171 /* CSDetailViewModel.swift */,
 				B7EDEC722BA5C9D4009367E2 /* SettingViewModel.swift */,
+				B7ED67A82BA6DBD00043A71F /* CardViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -191,6 +196,15 @@
 				B7C5244D2BA451840076D63A /* ImageService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		B7ED67A52BA6D9EE0043A71F /* RandomCardView */ = {
+			isa = PBXGroup;
+			children = (
+				B714BDFD2BA6B98A009FD0F9 /* RandomCardView.swift */,
+				B7ED67A62BA6D9FE0043A71F /* CardView.swift */,
+			);
+			path = RandomCardView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,7 +295,9 @@
 				B7A7952B2BA32834009B6171 /* CSDetailViewController.swift in Sources */,
 				B7EDEC732BA5C9D4009367E2 /* SettingViewModel.swift in Sources */,
 				B7C5244E2BA451840076D63A /* ImageService.swift in Sources */,
+				B7ED67A72BA6D9FE0043A71F /* CardView.swift in Sources */,
 				B7C5244A2BA44F990076D63A /* CSVideoCollectionView.swift in Sources */,
+				B7ED67A92BA6DBD00043A71F /* CardViewModel.swift in Sources */,
 				B714BDFE2BA6B98A009FD0F9 /* RandomCardView.swift in Sources */,
 				B7C524462BA43E600076D63A /* CSDatabase.swift in Sources */,
 				B7A7952D2BA3296B009B6171 /* CSDetailView.swift in Sources */,

@@ -1,12 +1,13 @@
 import UIKit
 
 final class RandomCardViewController: UIViewController {
+    private let viewModel: CardViewModel = CardViewModel()
     private var randomCardView: RandomCardView {
         return view as! RandomCardView
     }
     
     override func loadView() {
-        view = RandomCardView()
+        view = RandomCardView(viewModel: viewModel)
     }
     
     override func viewDidLoad() {

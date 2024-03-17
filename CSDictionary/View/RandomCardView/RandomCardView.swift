@@ -1,8 +1,9 @@
 import UIKit
 
 final class RandomCardView: UIView {
-    private let card: UIView = {
-        let view = UIView()
+    private var viewModel: CardViewModel
+    private lazy var card: CardView = {
+        let view = CardView(viewModel: viewModel)
         view.backgroundColor = UIColor(resource: .background)
         view.layer.cornerRadius = 20
         view.layer.shadowColor = UIColor.black.cgColor
@@ -12,7 +13,8 @@ final class RandomCardView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    init() {
+    init(viewModel: CardViewModel) {
+        self.viewModel = viewModel
         super.init(frame: .zero)
         backgroundColor = UIColor(resource: .background)
         setLayout()
@@ -31,5 +33,5 @@ final class RandomCardView: UIView {
             card.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
             card.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5)
         ])
-    }
+    }   
 }
