@@ -18,6 +18,12 @@ final class CSListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.navigationBar.topItem?.title = "CS 리스트"
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .tabbar
+        appearance.shadowColor = .separator
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+
         listView.setSearchController(delegate: self, navigationController: navigationController!)
     }
     

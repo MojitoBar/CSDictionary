@@ -1,4 +1,5 @@
 enum DB {
+    static let category = ["자료구조", "알고리즘", "네트워크", "운영체제", "디자인패턴", "기타"]
     static let csList = [
         CSItem(
             name: "Queue",

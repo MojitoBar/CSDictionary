@@ -2,16 +2,16 @@ import UIKit
 
 final class CardView: UIView {
     private let viewModel: CardViewModel
-    private let frontView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .blue
+    private let frontView: CardFrontView = {
+        let view = CardFrontView()
+        view.backgroundColor = UIColor(resource: .appPrimary).withAlphaComponent(0.5)
         view.layer.cornerRadius = 20
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     private let backView: UIView = {
         let view = UIView()
-        view.backgroundColor = .red
+        view.backgroundColor = UIColor(resource: .appPrimary).withAlphaComponent(0.5)
         view.layer.cornerRadius = 20
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
@@ -20,7 +20,11 @@ final class CardView: UIView {
     init(viewModel: CardViewModel) {
         self.viewModel = viewModel
         super.init(frame: .zero)
+        self.layer.cornerRadius = 20
+//        self.layer.borderWidth = 4
+//        self.layer.borderColor = UIColor(resource: .appPrimary).withAlphaComponent(0.5).cgColor
         setLayout()
+        frontView.configure(title: "Stack", category: "자료구조")
     }
     
     required init?(coder: NSCoder) {

@@ -18,6 +18,8 @@
 		B7039B482BA1AEF900626A9B /* CSItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7039B472BA1AEF900626A9B /* CSItem.swift */; };
 		B714BDFC2BA6B8FA009FD0F9 /* RandomCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B714BDFB2BA6B8FA009FD0F9 /* RandomCardViewController.swift */; };
 		B714BDFE2BA6B98A009FD0F9 /* RandomCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B714BDFD2BA6B98A009FD0F9 /* RandomCardView.swift */; };
+		B75E1A0B2BA8250A0051A31D /* CardFrontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75E1A0A2BA8250A0051A31D /* CardFrontView.swift */; };
+		B75E1A0E2BA837520051A31D /* CategoryFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75E1A0D2BA837520051A31D /* CategoryFilterCell.swift */; };
 		B7A7952B2BA32834009B6171 /* CSDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A7952A2BA32834009B6171 /* CSDetailViewController.swift */; };
 		B7A7952D2BA3296B009B6171 /* CSDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A7952C2BA3296B009B6171 /* CSDetailView.swift */; };
 		B7A795302BA3303A009B6171 /* CalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A7952F2BA3303A009B6171 /* CalloutView.swift */; };
@@ -49,6 +51,8 @@
 		B7039B472BA1AEF900626A9B /* CSItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSItem.swift; sourceTree = "<group>"; };
 		B714BDFB2BA6B8FA009FD0F9 /* RandomCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCardViewController.swift; sourceTree = "<group>"; };
 		B714BDFD2BA6B98A009FD0F9 /* RandomCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCardView.swift; sourceTree = "<group>"; };
+		B75E1A0A2BA8250A0051A31D /* CardFrontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFrontView.swift; sourceTree = "<group>"; };
+		B75E1A0D2BA837520051A31D /* CategoryFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterCell.swift; sourceTree = "<group>"; };
 		B7A7952A2BA32834009B6171 /* CSDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSDetailViewController.swift; sourceTree = "<group>"; };
 		B7A7952C2BA3296B009B6171 /* CSDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSDetailView.swift; sourceTree = "<group>"; };
 		B7A7952F2BA3303A009B6171 /* CalloutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalloutView.swift; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 		B7039B402BA1A87300626A9B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B75E1A0C2BA825750051A31D /* Common */,
 				B7ED67A52BA6D9EE0043A71F /* RandomCardView */,
 				B7A7952E2BA32FFC009B6171 /* CSDetailView */,
 				B7039B412BA1A87D00626A9B /* CSListView.swift */,
@@ -169,12 +174,19 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		B75E1A0C2BA825750051A31D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B7A795362BA33BDC009B6171 /* CategoryLabel.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		B7A7952E2BA32FFC009B6171 /* CSDetailView */ = {
 			isa = PBXGroup;
 			children = (
 				B7A7952C2BA3296B009B6171 /* CSDetailView.swift */,
 				B7A7952F2BA3303A009B6171 /* CalloutView.swift */,
-				B7A795362BA33BDC009B6171 /* CategoryLabel.swift */,
 				B7C524492BA44F990076D63A /* CSVideoCollectionView.swift */,
 				B7C5244B2BA450AB0076D63A /* CSVideoCell.swift */,
 			);
@@ -203,6 +215,8 @@
 			children = (
 				B714BDFD2BA6B98A009FD0F9 /* RandomCardView.swift */,
 				B7ED67A62BA6D9FE0043A71F /* CardView.swift */,
+				B75E1A0A2BA8250A0051A31D /* CardFrontView.swift */,
+				B75E1A0D2BA837520051A31D /* CategoryFilterCell.swift */,
 			);
 			path = RandomCardView;
 			sourceTree = "<group>";
@@ -289,6 +303,7 @@
 				B7039B422BA1A87D00626A9B /* CSListView.swift in Sources */,
 				B7A795322BA332C5009B6171 /* CSDetailViewModel.swift in Sources */,
 				B7EDEC712BA5C2ED009367E2 /* SettingView.swift in Sources */,
+				B75E1A0B2BA8250A0051A31D /* CardFrontView.swift in Sources */,
 				B7C5244C2BA450AB0076D63A /* CSVideoCell.swift in Sources */,
 				B7039B482BA1AEF900626A9B /* CSItem.swift in Sources */,
 				B7C524482BA43EF60076D63A /* CSItemService.swift in Sources */,
@@ -299,6 +314,7 @@
 				B7C5244A2BA44F990076D63A /* CSVideoCollectionView.swift in Sources */,
 				B7ED67A92BA6DBD00043A71F /* CardViewModel.swift in Sources */,
 				B714BDFE2BA6B98A009FD0F9 /* RandomCardView.swift in Sources */,
+				B75E1A0E2BA837520051A31D /* CategoryFilterCell.swift in Sources */,
 				B7C524462BA43E600076D63A /* CSDatabase.swift in Sources */,
 				B7A7952D2BA3296B009B6171 /* CSDetailView.swift in Sources */,
 			);
