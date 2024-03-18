@@ -34,14 +34,15 @@ final class CardCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            titleLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.6),
             titleLabel.heightAnchor.constraint(equalToConstant: 50),
             
             categoryLabel.topAnchor.constraint(equalTo: topAnchor, constant: 30),
             categoryLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            descriptionLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 10)
         ])
     }
     
