@@ -21,8 +21,6 @@ final class CardView: UIView {
         self.viewModel = viewModel
         super.init(frame: .zero)
         self.layer.cornerRadius = 20
-//        self.layer.borderWidth = 4
-//        self.layer.borderColor = UIColor(resource: .appPrimary).withAlphaComponent(0.5).cgColor
         setLayout()
         frontView.configure(title: "Stack", category: "자료구조")
     }

@@ -11,6 +11,8 @@ final class RandomCardView: UIView {
         collectionView.backgroundColor = UIColor(resource: .background)
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.register(CategoryFilterCell.self, forCellWithReuseIdentifier: CategoryFilterCell.identifier)
+        collectionView.tag = 0
         return collectionView
     }()
     private let randomButton: UIButton = {
@@ -29,11 +31,17 @@ final class RandomCardView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    private lazy var card: CardView = {
-        let view = CardView(viewModel: viewModel)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
+    private lazy var cardCollectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createCollectionViewLayout())
+        collectionView.backgroundColor = UIColor(resource: .background)
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.register(CardCell.self, forCellWithReuseIdentifier: CardCell.identifier)
+        collectionView.isPagingEnabled = true
+        collectionView.tag = 1
+        return collectionView
     }()
+    
     init(viewModel: CardViewModel) {
         self.viewModel = viewModel
         super.init(frame: .zero)
@@ -46,37 +54,55 @@ final class RandomCardView: UIView {
     }
     
     private func setLayout() {
-        addSubview(card)
         addSubview(filterCollectionView)
         addSubview(divider)
         addSubview(randomButton)
+        addSubview(cardCollectionView)
         
         NSLayoutConstraint.activate([
-            randomButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            randomButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             randomButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             randomButton.heightAnchor.constraint(equalToConstant: 35),
             randomButton.widthAnchor.constraint(equalToConstant: 50),
             
-            divider.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            divider.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             divider.leadingAnchor.constraint(equalTo: randomButton.trailingAnchor, constant: 16),
             divider.widthAnchor.constraint(equalToConstant: 2),
             divider.heightAnchor.constraint(equalToConstant: 35),
             
-            filterCollectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            filterCollectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             filterCollectionView.leadingAnchor.constraint(equalTo: randomButton.trailingAnchor, constant: 16),
             filterCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             filterCollectionView.heightAnchor.constraint(equalToConstant: 35),
             
-            card.centerXAnchor.constraint(equalTo: centerXAnchor),
-            card.centerYAnchor.constraint(equalTo: centerYAnchor),
-            card.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7),
-            card.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.4)
+            cardCollectionView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 20),
+            cardCollectionView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.4),
+            cardCollectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            cardCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
         ])
     }   
+    
+    private func createCollectionViewLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.95), heightDimension: .fractionalHeight(1.0))
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .fractionalHeight(1.0))
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+            let section = NSCollectionLayoutSection(group: group)
+            if let size = self.window?.frame.size.width {
+                section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: size * 0.25 / 2, bottom: 0, trailing: size * 0.25 / 2)
+            }
+            section.orthogonalScrollingBehavior = .groupPaging
+            return section
+        }
+        return layout
+    }
     
     func configureCollection(delegate: UICollectionViewDelegate, dataSource: UICollectionViewDataSource) {
         filterCollectionView.delegate = delegate
         filterCollectionView.dataSource = dataSource
-        filterCollectionView.register(CategoryFilterCell.self, forCellWithReuseIdentifier: CategoryFilterCell.identifier)
+        
+        cardCollectionView.delegate = delegate
+        cardCollectionView.dataSource = dataSource
     }
 }
