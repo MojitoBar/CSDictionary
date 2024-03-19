@@ -21,6 +21,31 @@ final class SettingViewController: UIViewController {
         navigationController?.navigationBar.topItem?.title = "환경설정"
         navigationController?.navigationBar.topItem?.searchController = nil
     }
+    
+    private func settingAction(option: SettingOption) {
+        switch option {
+        case .contactDeveloper:
+            if let url = URL(string: "https://forms.gle/AeAvBSB5CdBKKJ9S9") {
+                UIApplication.shared.open(url)
+            }
+        case .addCSKeyword:
+            if let url = URL(string: "https://forms.gle/ULz1fyu6DhmFxyB1A") {
+                UIApplication.shared.open(url)
+            }
+        case .displayMode:
+            break
+        case .textSize:
+            break
+        case .leaveReview:
+            break
+        case .notificationSetting:
+            break
+        case .clearImageCache:
+            break
+        case .removeAds:
+            break
+        }
+    }
 }
 
 extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
@@ -33,14 +58,15 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if viewModel.item(at: indexPath) == "화면 모드" {
+        if viewModel.option(at: indexPath) == .displayMode {
             return 90
         }
         return 44
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if viewModel.item(at: indexPath) == "화면 모드" {
+        let settingOption = viewModel.option(at: indexPath)
+        if settingOption == .displayMode {
             let cell = tableView.dequeueReusableCell(withIdentifier: DisplayModeCell.identifier, for: indexPath) as! DisplayModeCell
             cell.backgroundColor = UIColor(resource: .settingBackground)
             return cell
@@ -52,19 +78,19 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         cell.backgroundColor = UIColor(resource: .settingBackground)
         content.image = UIImage(systemName: viewModel.icon(at: indexPath), withConfiguration: UIImage.SymbolConfiguration(pointSize: 15, weight: .regular))
         content.imageProperties.tintColor = UIColor(resource: .appPrimary)
-        content.text = item
+        content.text = item.title
         cell.contentConfiguration = content
         return cell
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header")
-        header?.textLabel?.text = viewModel.sections[section]
+        header?.textLabel?.text = viewModel.sectionTitle(at: section)
         return header
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let item = viewModel.item(at: indexPath)
-        print(item)
+        let option = viewModel.option(at: indexPath)
+        settingAction(option: option)
     }
 }
