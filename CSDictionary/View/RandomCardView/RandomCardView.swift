@@ -17,7 +17,7 @@ final class RandomCardView: UIView {
     }()
     private let randomButton: UIButton = {
         let button = UIButton()
-        button.setTitle("랜덤", for: .normal)
+        button.setTitle("전체 랜덤", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         button.setTitleColor(.text, for: .normal)
         button.backgroundColor = .filterBackground
@@ -41,7 +41,6 @@ final class RandomCardView: UIView {
         collectionView.tag = 1
         return collectionView
     }()
-    
     init(viewModel: CardViewModel) {
         self.viewModel = viewModel
         super.init(frame: .zero)
@@ -63,7 +62,7 @@ final class RandomCardView: UIView {
             randomButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             randomButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             randomButton.heightAnchor.constraint(equalToConstant: 35),
-            randomButton.widthAnchor.constraint(equalToConstant: 50),
+            randomButton.widthAnchor.constraint(equalToConstant: 80),
             
             divider.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
             divider.leadingAnchor.constraint(equalTo: randomButton.trailingAnchor, constant: 16),
@@ -80,7 +79,7 @@ final class RandomCardView: UIView {
             cardCollectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             cardCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
         ])
-    }   
+    }
     
     private func createCollectionViewLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
