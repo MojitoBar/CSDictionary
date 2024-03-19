@@ -31,6 +31,7 @@ final class SettingView: UIView {
     
     private func setTableView() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(DisplayModeCell.self, forCellReuseIdentifier: DisplayModeCell.identifier)
         tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "header")
     }
     

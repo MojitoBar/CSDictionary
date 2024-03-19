@@ -3,7 +3,6 @@ import UIKit
 final class TabbarViewController: UITabBarController {
     private let tabBarTitle: [(title: String, image: String)] = [
         ("CS 리스트", "list.bullet"),
-        ("랜덤 카드", "note.text"),
         ("문제집", "book.pages"),
         ("환경설정", "gear")
     ]
@@ -15,7 +14,7 @@ final class TabbarViewController: UITabBarController {
     }
     
     private func setTabBarItem() {
-        let viewControllerList = [CSListViewController(), RandomCardViewController(), CSListViewController(), SettingViewController()]
+        let viewControllerList = [CSListViewController(), CSListViewController(), SettingViewController()]
         for (index, item) in tabBarTitle.enumerated() {
             let listTabBarItem = UITabBarItem(title: item.title, image: UIImage(systemName: item.image), tag: index)
             viewControllerList[index].tabBarItem = listTabBarItem   

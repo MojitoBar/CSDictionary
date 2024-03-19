@@ -32,7 +32,19 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         viewModel.itemsCount(in: section)
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if viewModel.item(at: indexPath) == "화면 모드" {
+            return 90
+        }
+        return 44
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if viewModel.item(at: indexPath) == "화면 모드" {
+            let cell = tableView.dequeueReusableCell(withIdentifier: DisplayModeCell.identifier, for: indexPath) as! DisplayModeCell
+            cell.backgroundColor = UIColor(resource: .settingBackground)
+            return cell
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let item = viewModel.item(at: indexPath)
         var content = cell.defaultContentConfiguration()
@@ -49,5 +61,10 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header")
         header?.textLabel?.text = viewModel.sections[section]
         return header
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = viewModel.item(at: indexPath)
+        print(item)
     }
 }
