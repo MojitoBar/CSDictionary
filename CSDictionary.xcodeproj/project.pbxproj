@@ -32,6 +32,8 @@
 		B7C5244E2BA451840076D63A /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5244D2BA451840076D63A /* ImageService.swift */; };
 		B7CCF8492BA98ACD006BB8B3 /* DisplayModeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CCF8482BA98ACD006BB8B3 /* DisplayModeCell.swift */; };
 		B7CCF84B2BA99262006BB8B3 /* SettingSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CCF84A2BA99261006BB8B3 /* SettingSection.swift */; };
+		B7CCF84D2BA9B948006BB8B3 /* ConfirmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CCF84C2BA9B948006BB8B3 /* ConfirmManager.swift */; };
+		B7CCF8502BA9BAA3006BB8B3 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CCF84F2BA9BAA3006BB8B3 /* SettingCell.swift */; };
 		B7ED67A92BA6DBD00043A71F /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ED67A82BA6DBD00043A71F /* CardViewModel.swift */; };
 		B7EDEC6F2BA5C2C6009367E2 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EDEC6E2BA5C2C6009367E2 /* SettingViewController.swift */; };
 		B7EDEC712BA5C2ED009367E2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EDEC702BA5C2ED009367E2 /* SettingView.swift */; };
@@ -66,6 +68,8 @@
 		B7C5244D2BA451840076D63A /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		B7CCF8482BA98ACD006BB8B3 /* DisplayModeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayModeCell.swift; sourceTree = "<group>"; };
 		B7CCF84A2BA99261006BB8B3 /* SettingSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingSection.swift; sourceTree = "<group>"; };
+		B7CCF84C2BA9B948006BB8B3 /* ConfirmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmManager.swift; sourceTree = "<group>"; };
+		B7CCF84F2BA9BAA3006BB8B3 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		B7ED67A82BA6DBD00043A71F /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		B7EDEC6E2BA5C2C6009367E2 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		B7EDEC702BA5C2ED009367E2 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -151,8 +155,8 @@
 				B75E1A0C2BA825750051A31D /* Common */,
 				B7ED67A52BA6D9EE0043A71F /* RandomCardView */,
 				B7A7952E2BA32FFC009B6171 /* CSDetailView */,
+				B7CCF84E2BA9BA8F006BB8B3 /* SettingView */,
 				B7039B412BA1A87D00626A9B /* CSListView.swift */,
-				B7EDEC702BA5C2ED009367E2 /* SettingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -181,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				B7A795362BA33BDC009B6171 /* CategoryLabel.swift */,
+				B7CCF84C2BA9B948006BB8B3 /* ConfirmManager.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 		B7A7952E2BA32FFC009B6171 /* CSDetailView */ = {
 			isa = PBXGroup;
 			children = (
+				B7EDEC702BA5C2ED009367E2 /* SettingView.swift */,
 				B7A7952C2BA3296B009B6171 /* CSDetailView.swift */,
 				B7A7952F2BA3303A009B6171 /* CalloutView.swift */,
 				B7C524492BA44F990076D63A /* CSVideoCollectionView.swift */,
@@ -213,13 +219,21 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		B7CCF84E2BA9BA8F006BB8B3 /* SettingView */ = {
+			isa = PBXGroup;
+			children = (
+				B7CCF8482BA98ACD006BB8B3 /* DisplayModeCell.swift */,
+				B7CCF84F2BA9BAA3006BB8B3 /* SettingCell.swift */,
+			);
+			path = SettingView;
+			sourceTree = "<group>";
+		};
 		B7ED67A52BA6D9EE0043A71F /* RandomCardView */ = {
 			isa = PBXGroup;
 			children = (
 				B714BDFD2BA6B98A009FD0F9 /* RandomCardView.swift */,
 				B75E1A0D2BA837520051A31D /* CategoryFilterCell.swift */,
 				B75E1A0F2BA842AD0051A31D /* CardCell.swift */,
-				B7CCF8482BA98ACD006BB8B3 /* DisplayModeCell.swift */,
 			);
 			path = RandomCardView;
 			sourceTree = "<group>";
@@ -308,6 +322,7 @@
 				B7039B422BA1A87D00626A9B /* CSListView.swift in Sources */,
 				B7A795322BA332C5009B6171 /* CSDetailViewModel.swift in Sources */,
 				B7EDEC712BA5C2ED009367E2 /* SettingView.swift in Sources */,
+				B7CCF8502BA9BAA3006BB8B3 /* SettingCell.swift in Sources */,
 				B7C5244C2BA450AB0076D63A /* CSVideoCell.swift in Sources */,
 				B7039B482BA1AEF900626A9B /* CSItem.swift in Sources */,
 				B7C524482BA43EF60076D63A /* CSItemService.swift in Sources */,
@@ -318,6 +333,7 @@
 				B7C5244A2BA44F990076D63A /* CSVideoCollectionView.swift in Sources */,
 				B7ED67A92BA6DBD00043A71F /* CardViewModel.swift in Sources */,
 				B714BDFE2BA6B98A009FD0F9 /* RandomCardView.swift in Sources */,
+				B7CCF84D2BA9B948006BB8B3 /* ConfirmManager.swift in Sources */,
 				B75E1A0E2BA837520051A31D /* CategoryFilterCell.swift in Sources */,
 				B7C524462BA43E600076D63A /* CSDatabase.swift in Sources */,
 				B7A7952D2BA3296B009B6171 /* CSDetailView.swift in Sources */,

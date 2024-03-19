@@ -23,7 +23,8 @@ enum SettingOption {
     
     var icon: String {
         switch self {
-        case .contactDeveloper, .addCSKeyword: return "envelope"
+        case .contactDeveloper: return "envelope"
+        case .addCSKeyword: return "folder.badge.plus"
         case .displayMode: return "display"
         case .textSize: return "textformat.size"
         case .leaveReview: return "highlighter"

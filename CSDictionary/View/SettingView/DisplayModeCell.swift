@@ -10,7 +10,7 @@ final class DisplayModeCell: UITableViewCell {
     private var segmentedControl: UISegmentedControl!
     private let iconImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "display")?.withTintColor(.appPrimary)
+        imageView.image = UIImage(systemName: "display", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20))?.withTintColor(.appPrimary)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -23,6 +23,8 @@ final class DisplayModeCell: UITableViewCell {
     }()
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        backgroundColor = UIColor(resource: .settingBackground)
+        selectionStyle = .none
         setupSegmentedControl()
         setLayout()
     }
@@ -56,13 +58,11 @@ final class DisplayModeCell: UITableViewCell {
         contentView.addSubview(segmentedControl)
         
         NSLayoutConstraint.activate([
-            iconImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             iconImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            iconImageView.widthAnchor.constraint(equalToConstant: 25),
-            iconImageView.heightAnchor.constraint(equalToConstant: 22),
+            iconImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            titleLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 10),
+            titleLabel.centerYAnchor.constraint(equalTo: iconImageView.centerYAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 60),
             
             segmentedControl.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 15),
             segmentedControl.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
