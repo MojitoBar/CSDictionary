@@ -37,6 +37,9 @@ final class SettingViewController: UIViewController {
         case .textSize:
             break
         case .leaveReview:
+            if let url = URL(string: "itms-apps://itunes.apple.com/app/1592949834") {
+                UIApplication.shared.open(url)
+            }
             break
         case .notificationSetting:
             break
@@ -48,7 +51,18 @@ final class SettingViewController: UIViewController {
     }
 }
 
-extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
+extension SettingViewController: UITableViewDelegate, UITableViewDataSource, DisplayModeCellDelegate {
+    func didChangeDisplayMode(to mode: UIUserInterfaceStyle) {
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScenes = scenes.filter { $0.activationState == .foregroundActive }
+            .compactMap { $0 as? UIWindowScene }
+        for windowScene in windowScenes {
+            windowScene.windows.forEach { window in
+                window.overrideUserInterfaceStyle = mode
+            }
+        }
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         viewModel.sections.count
     }
@@ -69,12 +83,15 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         if settingOption == .displayMode {
             let cell = tableView.dequeueReusableCell(withIdentifier: DisplayModeCell.identifier, for: indexPath) as! DisplayModeCell
             cell.backgroundColor = UIColor(resource: .settingBackground)
+            cell.selectionStyle = .none
+            cell.delegate = self
             return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let item = viewModel.item(at: indexPath)
         var content = cell.defaultContentConfiguration()
         cell.accessoryType = .disclosureIndicator
+        cell.selectionStyle = .none
         cell.backgroundColor = UIColor(resource: .settingBackground)
         content.image = UIImage(systemName: viewModel.icon(at: indexPath), withConfiguration: UIImage.SymbolConfiguration(pointSize: 15, weight: .regular))
         content.imageProperties.tintColor = UIColor(resource: .appPrimary)

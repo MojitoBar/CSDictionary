@@ -1,7 +1,12 @@
 import UIKit
 
+protocol DisplayModeCellDelegate: AnyObject {
+    func didChangeDisplayMode(to mode: UIUserInterfaceStyle)
+}
+
 final class DisplayModeCell: UITableViewCell {
     static let identifier = "DisplayModeCell"
+    weak var delegate: DisplayModeCellDelegate?
     private var segmentedControl: UISegmentedControl!
     private let iconImageView: UIImageView = {
         let imageView = UIImageView()
@@ -30,7 +35,19 @@ final class DisplayModeCell: UITableViewCell {
         segmentedControl = UISegmentedControl(items: ["System", "Light", "Dark"])
         segmentedControl.selectedSegmentIndex = 0
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
-        segmentedControl.addTarget(self, action: #selector(segmentChanged(_:)), for: .valueChanged)
+        segmentedControl.addAction(UIAction(handler: { [weak self] action in
+            guard let self = self else { return }
+            let selectedMode: UIUserInterfaceStyle
+            switch self.segmentedControl.selectedSegmentIndex {
+            case 1:
+                selectedMode = .light
+            case 2:
+                selectedMode = .dark
+            default:
+                selectedMode = .unspecified
+            }
+            self.delegate?.didChangeDisplayMode(to: selectedMode)
+        }), for: .valueChanged)
     }
     
     private func setLayout() {
@@ -51,9 +68,5 @@ final class DisplayModeCell: UITableViewCell {
             segmentedControl.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             segmentedControl.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20)
         ])
-    }
-    
-    @objc func segmentChanged(_ sender: UISegmentedControl) {
-        // 선택 변경 처리 로직
     }
 }
