@@ -18,10 +18,10 @@ enum FontManager {
         return Size(rawValue: textSizeChoice) ?? .medium
     }
 
-    static func getSelectedFont() -> UIFont {
+    static func getSelectedFont(percent: CGFloat = 1, weight: UIFont.Weight = .regular) -> UIFont {
         let choice = loadUserTextSizeChoice()
         let fontSize = calculateFontSize(from: choice)
-        return UIFont.systemFont(ofSize: fontSize)
+        return UIFont.systemFont(ofSize: (fontSize * percent), weight: weight)
     }
 
     static func calculateFontSize(from choice: Size) -> CGFloat {

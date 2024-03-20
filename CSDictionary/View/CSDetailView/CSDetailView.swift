@@ -15,11 +15,7 @@ final class CSDetailView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
-        
-        let font = UIFont.preferredFont(forTextStyle: .title1)
-        let fontDescriptor = font.fontDescriptor.withSymbolicTraits(.traitBold)
-        let boldFont = UIFont(descriptor: fontDescriptor!, size: 0)
-        label.font = boldFont
+        label.font = FontManager.getSelectedFont(percent: 2.5, weight: .bold)
         label.textColor = UIColor(resource: .text)
         return label
     }()
@@ -30,11 +26,7 @@ final class CSDetailView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
-
-        let font = UIFont.preferredFont(forTextStyle: .subheadline)
-        let fontDescriptor = font.fontDescriptor.withSymbolicTraits(.traitBold)
-        let boldFont = UIFont(descriptor: fontDescriptor!, size: 0)
-        label.font = boldFont
+        label.font = FontManager.getSelectedFont(weight: .bold)
         label.textColor = UIColor(resource: .text)
         label.text = "요약 설명"
         return label
@@ -50,11 +42,7 @@ final class CSDetailView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
-
-        let font = UIFont.preferredFont(forTextStyle: .subheadline)
-        let fontDescriptor = font.fontDescriptor.withSymbolicTraits(.traitBold)
-        let boldFont = UIFont(descriptor: fontDescriptor!, size: 0)
-        label.font = boldFont
+        label.font = FontManager.getSelectedFont(weight: .bold)
         label.textColor = UIColor(resource: .text)
         label.text = "상세 설명"
         return label
@@ -64,8 +52,7 @@ final class CSDetailView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
-
-        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        label.font = FontManager.getSelectedFont(weight: .regular)
         label.textColor = UIColor(resource: .text)
         label.numberOfLines = 0
         return label
@@ -75,11 +62,7 @@ final class CSDetailView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
-    
-        let font = UIFont.preferredFont(forTextStyle: .subheadline)
-        let fontDescriptor = font.fontDescriptor.withSymbolicTraits(.traitBold)
-        let boldFont = UIFont(descriptor: fontDescriptor!, size: 0)
-        label.font = boldFont
+        label.font = FontManager.getSelectedFont(weight: .bold)
         label.textColor = UIColor(resource: .text)
         label.text = "관련 영상"
         return label
@@ -131,7 +114,7 @@ final class CSDetailView: UIView {
             titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
             titleLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             
-            categoryLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20),
+            categoryLabel.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
             categoryLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
         
             summaryLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),

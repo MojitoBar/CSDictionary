@@ -5,7 +5,7 @@ final class CalloutView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
-        label.font = UIFont.preferredFont(forTextStyle: .headline)
+        label.font = FontManager.getSelectedFont(percent: 1, weight: .bold)
         label.textColor = UIColor(resource: .text)
         label.textAlignment = .center
         return label
@@ -15,7 +15,7 @@ final class CalloutView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
-        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        label.font = FontManager.getSelectedFont(percent: 1, weight: .regular)
         label.textColor = UIColor(resource: .text)
         label.numberOfLines = 0
         return label

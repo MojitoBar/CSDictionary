@@ -86,6 +86,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: SettingCell.identifier, for: indexPath) as! SettingCell
             cell.configure(option: option, description: "\(ImageService.formatBytes(ImageService.cacheSize()))")
             cell.setFont()
+            cell.accessoryType = .none
             return cell
         }
         else {

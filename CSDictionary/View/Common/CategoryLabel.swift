@@ -20,11 +20,7 @@ final class CategoryLabel: UILabel {
     init() {
         super.init(frame: .zero)
         adjustsFontForContentSizeCategory = true
-        let font = UIFont.preferredFont(forTextStyle: .footnote)
-        let fontDescriptor = font.fontDescriptor.withSymbolicTraits(.traitBold)
-        let boldFont = UIFont(descriptor: fontDescriptor!, size: 0)
-        self.font = boldFont
-        
+        font = FontManager.getSelectedFont(percent: 0.9, weight: .bold)
         translatesAutoresizingMaskIntoConstraints = false
         
         textColor = UIColor.white
