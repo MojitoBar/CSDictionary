@@ -29,12 +29,16 @@ final class SettingCell: UITableViewCell {
     private func setupTitleLabel() {
         titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.adjustsFontForContentSizeCategory = true
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .body)
         contentView.addSubview(titleLabel)
     }
     
     private func setupDescriptionLabel() {
         descriptionLabel = UILabel()
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel.adjustsFontForContentSizeCategory = true
+        descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
         contentView.addSubview(descriptionLabel)
     }
     

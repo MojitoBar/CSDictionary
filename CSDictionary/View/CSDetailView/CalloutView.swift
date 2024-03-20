@@ -4,7 +4,8 @@ final class CalloutView: UIView {
     private let emojiLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        label.adjustsFontForContentSizeCategory = true
+        label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.textColor = UIColor(resource: .text)
         label.textAlignment = .center
         return label
@@ -13,7 +14,8 @@ final class CalloutView: UIView {
     private let contentLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        label.adjustsFontForContentSizeCategory = true
+        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         label.textColor = UIColor(resource: .text)
         label.numberOfLines = 0
         return label
@@ -35,7 +37,7 @@ final class CalloutView: UIView {
         addSubview(contentLabel)
         
         NSLayoutConstraint.activate([
-            emojiLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            emojiLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             emojiLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             emojiLabel.widthAnchor.constraint(equalToConstant: 30),
             emojiLabel.heightAnchor.constraint(equalToConstant: 30),

@@ -45,6 +45,7 @@ extension CSListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let item = viewModel.item(at: indexPath)
+        cell.selectionStyle = .none
         cell.textLabel?.text = item.name
         cell.accessoryType = .disclosureIndicator
         cell.backgroundColor = UIColor(resource: .background)

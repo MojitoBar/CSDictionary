@@ -18,7 +18,8 @@ final class DisplayModeCell: UITableViewCell {
         let label = UILabel()
         label.text = "화면 모드"
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        label.adjustsFontForContentSizeCategory = true
+        label.font = UIFont.preferredFont(forTextStyle: .body)
         return label
     }()
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

@@ -19,9 +19,14 @@ final class CategoryLabel: UILabel {
     
     init() {
         super.init(frame: .zero)
+        adjustsFontForContentSizeCategory = true
+        let font = UIFont.preferredFont(forTextStyle: .footnote)
+        let fontDescriptor = font.fontDescriptor.withSymbolicTraits(.traitBold)
+        let boldFont = UIFont(descriptor: fontDescriptor!, size: 0)
+        self.font = boldFont
+        
         translatesAutoresizingMaskIntoConstraints = false
         
-        font = UIFont.systemFont(ofSize: 13, weight: .bold)
         textColor = UIColor.white
         backgroundColor = UIColor(resource: .appPrimary)
         

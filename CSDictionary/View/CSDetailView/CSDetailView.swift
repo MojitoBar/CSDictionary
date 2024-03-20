@@ -14,7 +14,12 @@ final class CSDetailView: UIView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+        label.adjustsFontForContentSizeCategory = true
+        
+        let font = UIFont.preferredFont(forTextStyle: .title1)
+        let fontDescriptor = font.fontDescriptor.withSymbolicTraits(.traitBold)
+        let boldFont = UIFont(descriptor: fontDescriptor!, size: 0)
+        label.font = boldFont
         label.textColor = UIColor(resource: .text)
         return label
     }()
@@ -24,7 +29,12 @@ final class CSDetailView: UIView {
     private let summaryLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        label.adjustsFontForContentSizeCategory = true
+
+        let font = UIFont.preferredFont(forTextStyle: .subheadline)
+        let fontDescriptor = font.fontDescriptor.withSymbolicTraits(.traitBold)
+        let boldFont = UIFont(descriptor: fontDescriptor!, size: 0)
+        label.font = boldFont
         label.textColor = UIColor(resource: .text)
         label.text = "요약 설명"
         return label
@@ -39,7 +49,12 @@ final class CSDetailView: UIView {
     private let detailLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        label.adjustsFontForContentSizeCategory = true
+
+        let font = UIFont.preferredFont(forTextStyle: .subheadline)
+        let fontDescriptor = font.fontDescriptor.withSymbolicTraits(.traitBold)
+        let boldFont = UIFont(descriptor: fontDescriptor!, size: 0)
+        label.font = boldFont
         label.textColor = UIColor(resource: .text)
         label.text = "상세 설명"
         return label
@@ -48,7 +63,9 @@ final class CSDetailView: UIView {
     private let detailDescription: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        label.adjustsFontForContentSizeCategory = true
+
+        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         label.textColor = UIColor(resource: .text)
         label.numberOfLines = 0
         return label
@@ -57,7 +74,12 @@ final class CSDetailView: UIView {
     private let videoLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+        label.adjustsFontForContentSizeCategory = true
+    
+        let font = UIFont.preferredFont(forTextStyle: .subheadline)
+        let fontDescriptor = font.fontDescriptor.withSymbolicTraits(.traitBold)
+        let boldFont = UIFont(descriptor: fontDescriptor!, size: 0)
+        label.font = boldFont
         label.textColor = UIColor(resource: .text)
         label.text = "관련 영상"
         return label
