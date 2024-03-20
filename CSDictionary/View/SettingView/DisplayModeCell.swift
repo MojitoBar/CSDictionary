@@ -34,9 +34,23 @@ final class DisplayModeCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func getSeletedIndex() -> Int {
+        let displayMode = DisplayManager.loadDisplayModeChoice()
+        switch displayMode {
+        case .unspecified:
+            return 0
+        case .light:
+            return 1
+        case .dark:
+            return 2
+        @unknown default:
+            fatalError()
+        }
+    }
+    
     private func setupSegmentedControl() {
         segmentedControl = UISegmentedControl(items: ["System", "Light", "Dark"])
-        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.selectedSegmentIndex = getSeletedIndex()
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         segmentedControl.addAction(UIAction(handler: { [weak self] action in
             guard let self = self else { return }

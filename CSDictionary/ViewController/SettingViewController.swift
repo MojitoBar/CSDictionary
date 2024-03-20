@@ -115,13 +115,7 @@ extension SettingViewController: DisplayModeCellDelegate, DynamicFontCellDelegat
     }
     
     func didChangeDisplayMode(to mode: UIUserInterfaceStyle) {
-        let scenes = UIApplication.shared.connectedScenes
-        let windowScenes = scenes.filter { $0.activationState == .foregroundActive }
-            .compactMap { $0 as? UIWindowScene }
-        for windowScene in windowScenes {
-            windowScene.windows.forEach { window in
-                window.overrideUserInterfaceStyle = mode
-            }
-        }
+        DisplayManager.saveDisplayModeChoice(mode: mode)
+        DisplayManager.setDisplayMode(mode: mode)
     }
 }

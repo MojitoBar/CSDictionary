@@ -27,15 +27,15 @@ enum FontManager {
     static func calculateFontSize(from choice: Size) -> CGFloat {
         switch choice {
         case .small:
-            return 13
+            return 11
         case .medium:
-            return 15
+            return 13
         case .large:
-            return 17
+            return 15
         case .xlarge:
-            return 19
+            return 17
         case .xxlarge:
-            return 21
+            return 19
         }
     }
 }

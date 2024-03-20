@@ -36,6 +36,7 @@
 		B7CCF8502BA9BAA3006BB8B3 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CCF84F2BA9BAA3006BB8B3 /* SettingCell.swift */; };
 		B7E72B192BAAC87900B2DD99 /* DynamicFontCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E72B182BAAC87900B2DD99 /* DynamicFontCell.swift */; };
 		B7E72B1B2BAACE1A00B2DD99 /* FontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E72B1A2BAACE1A00B2DD99 /* FontManager.swift */; };
+		B7E72B1D2BAAD71900B2DD99 /* DisplayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E72B1C2BAAD71900B2DD99 /* DisplayManager.swift */; };
 		B7ED67A92BA6DBD00043A71F /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ED67A82BA6DBD00043A71F /* CardViewModel.swift */; };
 		B7EDEC6F2BA5C2C6009367E2 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EDEC6E2BA5C2C6009367E2 /* SettingViewController.swift */; };
 		B7EDEC712BA5C2ED009367E2 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EDEC702BA5C2ED009367E2 /* SettingView.swift */; };
@@ -74,6 +75,7 @@
 		B7CCF84F2BA9BAA3006BB8B3 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		B7E72B182BAAC87900B2DD99 /* DynamicFontCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicFontCell.swift; sourceTree = "<group>"; };
 		B7E72B1A2BAACE1A00B2DD99 /* FontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontManager.swift; sourceTree = "<group>"; };
+		B7E72B1C2BAAD71900B2DD99 /* DisplayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayManager.swift; sourceTree = "<group>"; };
 		B7ED67A82BA6DBD00043A71F /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		B7EDEC6E2BA5C2C6009367E2 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		B7EDEC702BA5C2ED009367E2 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				B7C524472BA43EF60076D63A /* CSItemService.swift */,
 				B7C5244D2BA451840076D63A /* ImageService.swift */,
 				B7E72B1A2BAACE1A00B2DD99 /* FontManager.swift */,
+				B7E72B1C2BAAD71900B2DD99 /* DisplayManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7E72B1D2BAAD71900B2DD99 /* DisplayManager.swift in Sources */,
 				B7A795372BA33BDC009B6171 /* CategoryLabel.swift in Sources */,
 				B7039B3F2BA1A4B800626A9B /* TabbarViewController.swift in Sources */,
 				B7039B2C2BA1A1FB00626A9B /* CSListViewController.swift in Sources */,

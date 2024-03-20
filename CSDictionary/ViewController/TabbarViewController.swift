@@ -13,6 +13,13 @@ final class TabbarViewController: UITabBarController {
         setLayout()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let mode = DisplayManager.loadDisplayModeChoice()
+        DisplayManager.setDisplayMode(mode: mode)
+    }
+    
     private func setTabBarItem() {
         let viewControllerList = [CSListViewController(), CSListViewController(), SettingViewController()]
         for (index, item) in tabBarTitle.enumerated() {
