@@ -1,22 +1,24 @@
 import UIKit
 
-protocol DisplayModeCellDelegate: AnyObject {
-    func didChangeDisplayMode(to mode: UIUserInterfaceStyle)
+protocol DynamicFontCellDelegate: AnyObject {
+    func didChangeFontSize()
 }
 
-final class DisplayModeCell: UITableViewCell {
-    static let identifier = "DisplayModeCell"
-    weak var delegate: DisplayModeCellDelegate?
+final class DynamicFontCell: UITableViewCell {
+    static let identifier = "DynamicFontCell"
+    weak var delegate: DynamicFontCellDelegate?
     private var segmentedControl: UISegmentedControl!
     private let iconImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "display", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20))?.withTintColor(.appPrimary)
+        let image = UIImage(systemName: "textformat.size", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20))?.withRenderingMode(.alwaysTemplate)
+        imageView.image = image
+        imageView.tintColor = .appPrimary
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "화면 모드"
+        label.text = "글자 크기"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
         label.font = FontManager.getSelectedFont()
@@ -34,22 +36,46 @@ final class DisplayModeCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func getSelectedIndex() -> Int {
+        let fontSize = UserDefaults.standard.string(forKey: "fontSize") ?? "large"
+        switch fontSize {
+        case "small":
+            return 0
+        case "medium":
+            return 1
+        case "large":
+            return 2
+        case "xlarge":
+            return 3
+        case "xxlarge":
+            return 4
+        default:
+            return 2
+        }
+    }
+    
     private func setupSegmentedControl() {
-        segmentedControl = UISegmentedControl(items: ["System", "Light", "Dark"])
-        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl = UISegmentedControl(items: ["더 작게", "작게", "보통", "크게", "더 크게"])
+        segmentedControl.selectedSegmentIndex = getSelectedIndex()
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         segmentedControl.addAction(UIAction(handler: { [weak self] action in
             guard let self = self else { return }
-            let selectedMode: UIUserInterfaceStyle
-            switch self.segmentedControl.selectedSegmentIndex {
+            let index = self.segmentedControl.selectedSegmentIndex
+            self.delegate?.didChangeFontSize()
+            switch index {
+            case 0:
+                UserDefaults.standard.set("small", forKey: "fontSize")
             case 1:
-                selectedMode = .light
+                UserDefaults.standard.set("medium", forKey: "fontSize")
             case 2:
-                selectedMode = .dark
+                UserDefaults.standard.set("large", forKey: "fontSize")
+            case 3:
+                UserDefaults.standard.set("xlarge", forKey: "fontSize")
+            case 4:
+                UserDefaults.standard.set("xxlarge", forKey: "fontSize")
             default:
-                selectedMode = .unspecified
+                break
             }
-            self.delegate?.didChangeDisplayMode(to: selectedMode)
         }), for: .valueChanged)
     }
     

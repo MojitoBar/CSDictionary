@@ -23,7 +23,8 @@ final class CSListViewController: UIViewController {
         appearance.backgroundColor = .tabbar
         appearance.shadowColor = .separator
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
-
+        
+        listView.tableView.reloadData()
         listView.setSearchController(delegate: self, navigationController: navigationController!)
     }
     
@@ -45,10 +46,13 @@ extension CSListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let item = viewModel.item(at: indexPath)
+        var content = cell.defaultContentConfiguration()
         cell.selectionStyle = .none
-        cell.textLabel?.text = item.name
+        content.text = item.name
+        content.textProperties.font = FontManager.getSelectedFont()
         cell.accessoryType = .disclosureIndicator
         cell.backgroundColor = UIColor(resource: .background)
+        cell.contentConfiguration = content
         return cell
     }
     

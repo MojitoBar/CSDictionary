@@ -18,7 +18,10 @@ enum DB {
             category: "자료구조",
             urls: ["https://www.youtube.com/watch?v=cyf4HycvxXg",
                   "https://www.youtube.com/watch?v=3Z2TTzTe7bE&pp=ygUGCHF1ZXVl",
-                  "https://www.youtube.com/watch?v=BdsyG5yP1cQ&pp=ygUGCHF1ZXVl"]
+                  "https://www.youtube.com/watch?v=BdsyG5yP1cQ&pp=ygUGCHF1ZXVl",
+                  "https://www.youtube.com/watch?v=DpcJP-wQWGI",
+                  "https://www.youtube.com/watch?v=Uz-pSps2T-A",
+                  "https://www.youtube.com/watch?v=c1DcQABWypk"]
         ),
         CSItem(
             name: "LinkedList",

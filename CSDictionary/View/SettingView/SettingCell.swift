@@ -30,7 +30,7 @@ final class SettingCell: UITableViewCell {
         titleLabel = UILabel()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.adjustsFontForContentSizeCategory = true
-        titleLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        titleLabel.font = FontManager.getSelectedFont()
         contentView.addSubview(titleLabel)
     }
     
@@ -38,7 +38,7 @@ final class SettingCell: UITableViewCell {
         descriptionLabel = UILabel()
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.adjustsFontForContentSizeCategory = true
-        descriptionLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        descriptionLabel.font = FontManager.getSelectedFont()
         contentView.addSubview(descriptionLabel)
     }
     
@@ -60,5 +60,10 @@ final class SettingCell: UITableViewCell {
         descriptionLabel.text = description
         iconImageView.image = UIImage(systemName: option.icon, withConfiguration: UIImage.SymbolConfiguration(pointSize: 20))
         iconImageView.tintColor = .appPrimary
+    }
+    
+    func setFont() {
+        titleLabel.font = FontManager.getSelectedFont()
+        descriptionLabel.font = FontManager.getSelectedFont()
     }
 }

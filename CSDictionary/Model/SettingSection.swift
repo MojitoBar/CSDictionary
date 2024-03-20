@@ -16,7 +16,7 @@ enum SettingOption {
         case .textSize: return "글자 크기"
         case .leaveReview: return "리뷰 남기기"
         case .notificationSetting: return "알림 설정"
-        case .clearImageCache: return "이미지 캐쉬 용량 비우기"
+        case .clearImageCache: return "캐쉬 용량 비우기"
         case .removeAds: return "광고 제거"
         }
     }

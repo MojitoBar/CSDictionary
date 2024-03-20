@@ -62,7 +62,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if viewModel.option(at: indexPath) == .displayMode {
+        if viewModel.option(at: indexPath) == .displayMode || viewModel.option(at: indexPath) == .textSize{
             return 90
         }
         return 44
@@ -73,17 +73,28 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         if option == .displayMode {
             let cell = tableView.dequeueReusableCell(withIdentifier: DisplayModeCell.identifier, for: indexPath) as! DisplayModeCell
             cell.delegate = self
+            cell.setFont()
             return cell
         }
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: SettingCell.identifier, for: indexPath) as! SettingCell
+        if option == .textSize {
+            let cell = tableView.dequeueReusableCell(withIdentifier: DynamicFontCell.identifier, for: indexPath) as! DynamicFontCell
+            cell.delegate = self
+            cell.setFont()
+            return cell
+        }
         if option == .clearImageCache {
+            let cell = tableView.dequeueReusableCell(withIdentifier: SettingCell.identifier, for: indexPath) as! SettingCell
             cell.configure(option: option, description: "\(ImageService.formatBytes(ImageService.cacheSize()))")
+            cell.setFont()
             return cell
         }
-        cell.configure(option: option)
-        cell.accessoryType = .disclosureIndicator
-        return cell
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: SettingCell.identifier, for: indexPath) as! SettingCell
+            cell.configure(option: option)
+            cell.setFont()
+            cell.accessoryType = .disclosureIndicator
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -98,7 +109,11 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension SettingViewController: DisplayModeCellDelegate {
+extension SettingViewController: DisplayModeCellDelegate, DynamicFontCellDelegate {
+    func didChangeFontSize() {
+        settingView.tableView.reloadData()
+    }
+    
     func didChangeDisplayMode(to mode: UIUserInterfaceStyle) {
         let scenes = UIApplication.shared.connectedScenes
         let windowScenes = scenes.filter { $0.activationState == .foregroundActive }
