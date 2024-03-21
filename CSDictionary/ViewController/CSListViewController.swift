@@ -9,7 +9,6 @@ final class CSListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         listViewConfigure()
-        NotificationManager.scheduleDailyNotification(title: "알람테스트", body: "이 알람은 테스트입니다.", identifier: "pushTest")
     }
     
     override func loadView() {

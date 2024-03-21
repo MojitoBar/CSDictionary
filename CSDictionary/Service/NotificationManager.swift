@@ -20,4 +20,11 @@ enum NotificationManager {
             }
         }
     }
+    
+    static func receivePushNotiNews(title: String, body: String, liknURL: String) {
+        let newsText = "\(title) : \(body) | \(liknURL)"
+        var newsList = UserDefaults.standard.stringArray(forKey: "NewsList") ?? []
+        newsList.append(newsText)
+        UserDefaults.standard.set(newsList, forKey: "NewsList")
+    }
 }

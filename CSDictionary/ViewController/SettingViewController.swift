@@ -12,22 +12,18 @@ final class SettingViewController: UIViewController {
                 UIApplication.shared.open(url)
             }
         },
-        .displayMode: {},
-        .textSize: {},
         .leaveReview: {
             if let url = URL(string: "itms-apps://itunes.apple.com/app/1592949834") {
                 UIApplication.shared.open(url)
             }
         },
-        .notificationSetting: {},
         .clearImageCache: {
             let alert = ConfirmManager.makeAlert(title: "캐시 지우기", message: "모든 캐시를 지우시겠습니까?") { [weak self] in
                 ImageService.clearCache()
                 self?.settingView.tableView.reloadData()
             }
             self.present(alert, animated: true)
-        },
-        .removeAds: {}
+        }
     ]
     private var settingView: SettingView {
         view as! SettingView
@@ -76,17 +72,25 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             cell.setFont()
             return cell
         }
-        if option == .textSize {
+        else if option == .textSize {
             let cell = tableView.dequeueReusableCell(withIdentifier: DynamicFontCell.identifier, for: indexPath) as! DynamicFontCell
             cell.delegate = self
             cell.setFont()
             return cell
         }
-        if option == .clearImageCache {
+        else if option == .clearImageCache {
             let cell = tableView.dequeueReusableCell(withIdentifier: SettingCell.identifier, for: indexPath) as! SettingCell
             cell.configure(option: option, description: "\(ImageService.formatBytes(ImageService.cacheSize()))")
             cell.setFont()
             cell.accessoryType = .none
+            return cell
+        }
+        else if option == .notificationSetting {
+            let cell = tableView.dequeueReusableCell(withIdentifier: NotificationCell.identifier, for: indexPath) as! NotificationCell
+            cell.configure(option: option)
+            cell.setFont()
+            cell.delegate = self
+            cell.accessoryType = .disclosureIndicator
             return cell
         }
         else {
@@ -110,7 +114,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension SettingViewController: DisplayModeCellDelegate, DynamicFontCellDelegate {
+extension SettingViewController: DisplayModeCellDelegate, DynamicFontCellDelegate, NotificationCellDelegate {
     func didChangeFontSize() {
         settingView.tableView.reloadData()
     }
@@ -118,5 +122,11 @@ extension SettingViewController: DisplayModeCellDelegate, DynamicFontCellDelegat
     func didChangeDisplayMode(to mode: UIUserInterfaceStyle) {
         DisplayManager.saveDisplayModeChoice(mode: mode)
         DisplayManager.setDisplayMode(mode: mode)
+    }
+    
+    func notiClicked() {
+        if let url = URL(string: UIApplication.openSettingsURLString) {
+            UIApplication.shared.open(url)
+        }
     }
 }
