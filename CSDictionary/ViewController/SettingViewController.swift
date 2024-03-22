@@ -38,6 +38,8 @@ final class SettingViewController: UIViewController {
         super.viewDidLoad()
         settingView.setDelegate(delegate: self)
         settingView.setDataSource(dataSource: self)
+        
+        AnalyticsManager.logEvent("setting_viewed")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -111,20 +113,25 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let option = viewModel.option(at: indexPath)
         itemActions[option]?()
+        
+        AnalyticsManager.logEvent("setting_option_clicked", parameters: ["option": option.title])
     }
 }
 
 extension SettingViewController: DisplayModeCellDelegate, DynamicFontCellDelegate, NotificationCellDelegate {
     func didChangeFontSize() {
+        AnalyticsManager.logEvent("font_size_changed")
         settingView.tableView.reloadData()
     }
     
     func didChangeDisplayMode(to mode: UIUserInterfaceStyle) {
+        AnalyticsManager.logEvent("display_mode_changed")
         DisplayManager.saveDisplayModeChoice(mode: mode)
         DisplayManager.setDisplayMode(mode: mode)
     }
     
     func notiClicked() {
+        AnalyticsManager.logEvent("notification_setting_clicked")
         if let url = URL(string: UIApplication.openSettingsURLString) {
             UIApplication.shared.open(url)
         }

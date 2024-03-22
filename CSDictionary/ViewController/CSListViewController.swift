@@ -9,6 +9,8 @@ final class CSListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         listViewConfigure()
+        
+        AnalyticsManager.logEvent("cs_list_viewed")
     }
     
     override func loadView() {
@@ -63,6 +65,7 @@ extension CSListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        AnalyticsManager.logEvent("cs_list_item_selected", parameters: ["item": viewModel.item(at: indexPath).name])
         let item = viewModel.item(at: indexPath)
         let detailVC = CSDetailViewController(item: item)
         navigationController?.pushViewController(detailVC, animated: true)

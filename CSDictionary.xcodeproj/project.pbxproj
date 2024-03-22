@@ -20,6 +20,7 @@
 		B714BDFE2BA6B98A009FD0F9 /* RandomCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B714BDFD2BA6B98A009FD0F9 /* RandomCardView.swift */; };
 		B75E1A0E2BA837520051A31D /* CategoryFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75E1A0D2BA837520051A31D /* CategoryFilterCell.swift */; };
 		B75E1A102BA842AD0051A31D /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75E1A0F2BA842AD0051A31D /* CardCell.swift */; };
+		B77BE45B2BAD8E6A000E0DDB /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77BE45A2BAD8E6A000E0DDB /* AnalyticsManager.swift */; };
 		B79725302BAB047A00F923A1 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B797252F2BAB047A00F923A1 /* NotificationManager.swift */; };
 		B7A7952B2BA32834009B6171 /* CSDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A7952A2BA32834009B6171 /* CSDetailViewController.swift */; };
 		B7A7952D2BA3296B009B6171 /* CSDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A7952C2BA3296B009B6171 /* CSDetailView.swift */; };
@@ -27,6 +28,8 @@
 		B7A795322BA332C5009B6171 /* CSDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A795312BA332C5009B6171 /* CSDetailViewModel.swift */; };
 		B7A795372BA33BDC009B6171 /* CategoryLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A795362BA33BDC009B6171 /* CategoryLabel.swift */; };
 		B7AA995E2BAC629D007C29E5 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AA995D2BAC629D007C29E5 /* NotificationCell.swift */; };
+		B7BEEDF72BAD716B008D1362 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7BEEDF62BAD716B008D1362 /* GoogleService-Info.plist */; };
+		B7BEEDFA2BAD71DC008D1362 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B7BEEDF92BAD71DC008D1362 /* FirebaseAnalytics */; };
 		B7C524462BA43E600076D63A /* CSDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C524452BA43E600076D63A /* CSDatabase.swift */; };
 		B7C524482BA43EF60076D63A /* CSItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C524472BA43EF60076D63A /* CSItemService.swift */; };
 		B7C5244A2BA44F990076D63A /* CSVideoCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C524492BA44F990076D63A /* CSVideoCollectionView.swift */; };
@@ -61,6 +64,7 @@
 		B714BDFD2BA6B98A009FD0F9 /* RandomCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCardView.swift; sourceTree = "<group>"; };
 		B75E1A0D2BA837520051A31D /* CategoryFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterCell.swift; sourceTree = "<group>"; };
 		B75E1A0F2BA842AD0051A31D /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
+		B77BE45A2BAD8E6A000E0DDB /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
 		B797252F2BAB047A00F923A1 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		B7A7952A2BA32834009B6171 /* CSDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSDetailViewController.swift; sourceTree = "<group>"; };
 		B7A7952C2BA3296B009B6171 /* CSDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSDetailView.swift; sourceTree = "<group>"; };
@@ -69,6 +73,7 @@
 		B7A795362BA33BDC009B6171 /* CategoryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryLabel.swift; sourceTree = "<group>"; };
 		B7AA995C2BAC1DE4007C29E5 /* CSDictionary.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CSDictionary.entitlements; sourceTree = "<group>"; };
 		B7AA995D2BAC629D007C29E5 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		B7BEEDF62BAD716B008D1362 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B7C524452BA43E600076D63A /* CSDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSDatabase.swift; sourceTree = "<group>"; };
 		B7C524472BA43EF60076D63A /* CSItemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSItemService.swift; sourceTree = "<group>"; };
 		B7C524492BA44F990076D63A /* CSVideoCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVideoCollectionView.swift; sourceTree = "<group>"; };
@@ -92,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7BEEDFA2BAD71DC008D1362 /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +123,7 @@
 		B7039B262BA1A1FB00626A9B /* CSDictionary */ = {
 			isa = PBXGroup;
 			children = (
+				B7BEEDF62BAD716B008D1362 /* GoogleService-Info.plist */,
 				B7AA995C2BAC1DE4007C29E5 /* CSDictionary.entitlements */,
 				B7039B3C2BA1A48400626A9B /* Application */,
 				B7039B462BA1AEEA00626A9B /* Model */,
@@ -229,6 +236,7 @@
 				B7E72B1A2BAACE1A00B2DD99 /* FontManager.swift */,
 				B7E72B1C2BAAD71900B2DD99 /* DisplayManager.swift */,
 				B797252F2BAB047A00F923A1 /* NotificationManager.swift */,
+				B77BE45A2BAD8E6A000E0DDB /* AnalyticsManager.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -271,6 +279,9 @@
 			dependencies = (
 			);
 			name = CSDictionary;
+			packageProductDependencies = (
+				B7BEEDF92BAD71DC008D1362 /* FirebaseAnalytics */,
+			);
 			productName = CSDictionary;
 			productReference = B7039B242BA1A1FB00626A9B /* CSDictionary.app */;
 			productType = "com.apple.product-type.application";
@@ -299,6 +310,9 @@
 				Base,
 			);
 			mainGroup = B7039B1B2BA1A1FA00626A9B;
+			packageReferences = (
+				B7BEEDF82BAD71DC008D1362 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = B7039B252BA1A1FB00626A9B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -315,6 +329,7 @@
 			files = (
 				B7039B342BA1A1FB00626A9B /* LaunchScreen.storyboard in Resources */,
 				B7039B312BA1A1FB00626A9B /* Assets.xcassets in Resources */,
+				B7BEEDF72BAD716B008D1362 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +362,7 @@
 				B7039B482BA1AEF900626A9B /* CSItem.swift in Sources */,
 				B7C524482BA43EF60076D63A /* CSItemService.swift in Sources */,
 				B7E72B192BAAC87900B2DD99 /* DynamicFontCell.swift in Sources */,
+				B77BE45B2BAD8E6A000E0DDB /* AnalyticsManager.swift in Sources */,
 				B7A7952B2BA32834009B6171 /* CSDetailViewController.swift in Sources */,
 				B7EDEC732BA5C9D4009367E2 /* SettingViewModel.swift in Sources */,
 				B7C5244E2BA451840076D63A /* ImageService.swift in Sources */,
@@ -575,6 +591,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B7BEEDF82BAD71DC008D1362 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.23.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B7BEEDF92BAD71DC008D1362 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7BEEDF82BAD71DC008D1362 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B7039B1C2BA1A1FA00626A9B /* Project object */;
 }

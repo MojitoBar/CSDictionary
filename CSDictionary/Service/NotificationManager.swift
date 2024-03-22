@@ -16,7 +16,7 @@ enum NotificationManager {
         
         UNUserNotificationCenter.current().add(request) { error in
             if let error = error {
-                print("Notification Error: ", error)
+                NSLog("Error: \(error)")
             }
         }
     }

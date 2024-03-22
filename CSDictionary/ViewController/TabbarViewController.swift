@@ -1,4 +1,5 @@
 import UIKit
+import FirebaseAnalytics
 
 final class TabbarViewController: UITabBarController {
     private let tabBarTitle: [(title: String, image: String)] = [
@@ -11,6 +12,8 @@ final class TabbarViewController: UITabBarController {
         super.viewDidLoad()
         setTabBarItem()
         setLayout()
+        
+        AnalyticsManager.logEvent("tabbar_viewed")
     }
     
     override func viewDidAppear(_ animated: Bool) {
