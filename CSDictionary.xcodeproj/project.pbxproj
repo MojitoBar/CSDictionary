@@ -21,6 +21,10 @@
 		B75E1A0E2BA837520051A31D /* CategoryFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75E1A0D2BA837520051A31D /* CategoryFilterCell.swift */; };
 		B75E1A102BA842AD0051A31D /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B75E1A0F2BA842AD0051A31D /* CardCell.swift */; };
 		B77BE45B2BAD8E6A000E0DDB /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77BE45A2BAD8E6A000E0DDB /* AnalyticsManager.swift */; };
+		B77BE45D2BB19CC0000E0DDB /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77BE45C2BB19CC0000E0DDB /* QuestionViewController.swift */; };
+		B77BE45F2BB19D03000E0DDB /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77BE45E2BB19D03000E0DDB /* QuestionView.swift */; };
+		B77BE4612BB19DFA000E0DDB /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77BE4602BB19DFA000E0DDB /* QuestionViewModel.swift */; };
+		B77BE4632BB19EBA000E0DDB /* CSQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77BE4622BB19EBA000E0DDB /* CSQuestion.swift */; };
 		B79725302BAB047A00F923A1 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B797252F2BAB047A00F923A1 /* NotificationManager.swift */; };
 		B7A7952B2BA32834009B6171 /* CSDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A7952A2BA32834009B6171 /* CSDetailViewController.swift */; };
 		B7A7952D2BA3296B009B6171 /* CSDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A7952C2BA3296B009B6171 /* CSDetailView.swift */; };
@@ -65,6 +69,10 @@
 		B75E1A0D2BA837520051A31D /* CategoryFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryFilterCell.swift; sourceTree = "<group>"; };
 		B75E1A0F2BA842AD0051A31D /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		B77BE45A2BAD8E6A000E0DDB /* AnalyticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
+		B77BE45C2BB19CC0000E0DDB /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		B77BE45E2BB19D03000E0DDB /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
+		B77BE4602BB19DFA000E0DDB /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
+		B77BE4622BB19EBA000E0DDB /* CSQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSQuestion.swift; sourceTree = "<group>"; };
 		B797252F2BAB047A00F923A1 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		B7A7952A2BA32834009B6171 /* CSDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSDetailViewController.swift; sourceTree = "<group>"; };
 		B7A7952C2BA3296B009B6171 /* CSDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSDetailView.swift; sourceTree = "<group>"; };
@@ -164,6 +172,7 @@
 				B7A7952A2BA32834009B6171 /* CSDetailViewController.swift */,
 				B7EDEC6E2BA5C2C6009367E2 /* SettingViewController.swift */,
 				B714BDFB2BA6B8FA009FD0F9 /* RandomCardViewController.swift */,
+				B77BE45C2BB19CC0000E0DDB /* QuestionViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -176,6 +185,7 @@
 				B7A7952E2BA32FFC009B6171 /* CSDetailView */,
 				B7CCF84E2BA9BA8F006BB8B3 /* SettingView */,
 				B7039B412BA1A87D00626A9B /* CSListView.swift */,
+				B77BE45E2BB19D03000E0DDB /* QuestionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -187,6 +197,7 @@
 				B7A795312BA332C5009B6171 /* CSDetailViewModel.swift */,
 				B7EDEC722BA5C9D4009367E2 /* SettingViewModel.swift */,
 				B7ED67A82BA6DBD00043A71F /* CardViewModel.swift */,
+				B77BE4602BB19DFA000E0DDB /* QuestionViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -195,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				B7039B472BA1AEF900626A9B /* CSItem.swift */,
+				B77BE4622BB19EBA000E0DDB /* CSQuestion.swift */,
 				B7CCF84A2BA99261006BB8B3 /* SettingSection.swift */,
 			);
 			path = Model;
@@ -349,11 +361,14 @@
 				B7CCF84B2BA99262006BB8B3 /* SettingSection.swift in Sources */,
 				B714BDFC2BA6B8FA009FD0F9 /* RandomCardViewController.swift in Sources */,
 				B7EDEC6F2BA5C2C6009367E2 /* SettingViewController.swift in Sources */,
+				B77BE4632BB19EBA000E0DDB /* CSQuestion.swift in Sources */,
 				B7039B282BA1A1FB00626A9B /* AppDelegate.swift in Sources */,
+				B77BE4612BB19DFA000E0DDB /* QuestionViewModel.swift in Sources */,
 				B75E1A102BA842AD0051A31D /* CardCell.swift in Sources */,
 				B7039B2A2BA1A1FB00626A9B /* SceneDelegate.swift in Sources */,
 				B7039B422BA1A87D00626A9B /* CSListView.swift in Sources */,
 				B7A795322BA332C5009B6171 /* CSDetailViewModel.swift in Sources */,
+				B77BE45F2BB19D03000E0DDB /* QuestionView.swift in Sources */,
 				B7EDEC712BA5C2ED009367E2 /* SettingView.swift in Sources */,
 				B79725302BAB047A00F923A1 /* NotificationManager.swift in Sources */,
 				B7AA995E2BAC629D007C29E5 /* NotificationCell.swift in Sources */,
@@ -366,6 +381,7 @@
 				B7A7952B2BA32834009B6171 /* CSDetailViewController.swift in Sources */,
 				B7EDEC732BA5C9D4009367E2 /* SettingViewModel.swift in Sources */,
 				B7C5244E2BA451840076D63A /* ImageService.swift in Sources */,
+				B77BE45D2BB19CC0000E0DDB /* QuestionViewController.swift in Sources */,
 				B7E72B1B2BAACE1A00B2DD99 /* FontManager.swift in Sources */,
 				B7CCF8492BA98ACD006BB8B3 /* DisplayModeCell.swift in Sources */,
 				B7C5244A2BA44F990076D63A /* CSVideoCollectionView.swift in Sources */,

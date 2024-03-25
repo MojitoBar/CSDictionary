@@ -1,11 +1,11 @@
 import Foundation
 
-final class CSListViewModel {
-    @Published private(set) var items: [CSItem] = []
-    private var filteredItems: [CSItem] = []
+final class QuestionViewModel {
+    @Published private(set) var items: [CSQuestion] = []
+    private var filteredItems: [CSQuestion] = []
     
     init() {
-        items = CSItemService.readCSItems()
+        items = CSItemService.readQuestions()
     }
     
     var isSearching: Bool = false
@@ -14,7 +14,7 @@ final class CSListViewModel {
         isSearching ? ["검색 결과"] : DB.CSSections
     }
     
-    func item(at indexPath: IndexPath) -> CSItem {
+    func item(at indexPath: IndexPath) -> CSQuestion {
         isSearching ? filteredItems[indexPath.row] : items.filter { $0.category == sections[indexPath.section] }[indexPath.row]
     }
     
@@ -25,6 +25,6 @@ final class CSListViewModel {
     
     func filterItems(for searchText: String) {
         isSearching = !searchText.isEmpty
-        filteredItems = items.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+        filteredItems = items.filter { $0.question.lowercased().contains(searchText.lowercased()) }
     }
 }
