@@ -2,11 +2,12 @@ import UIKit
 
 final class CustomMarkdownParser {
     func parse(markdownText: String, completion: @escaping (NSAttributedString?) -> Void) {
+        var imageInfos = [(range: NSRange, image: NSAttributedString?)]()
         let attributedString = NSMutableAttributedString(string: markdownText)
         applyStyles(to: attributedString)
         
         let group = DispatchGroup()
-
+        
         let imagePattern = "!\\[.*?\\]\\((.*?)\\)"
         let regex = try! NSRegularExpression(pattern: imagePattern, options: [])
         let text = attributedString.string
@@ -19,30 +20,31 @@ final class CustomMarkdownParser {
             
             group.enter()
             loadImageAsync(from: imageUrl) { image in
-                guard let image = image else {
-                    group.leave()
-                    return
+                if let image = image {
+                    let ratio = image.size.width / image.size.height
+                    let width = UIScreen.main.bounds.width
+                    let imageAttachment = NSTextAttachment()
+                    imageAttachment.image = image
+                    imageAttachment.bounds = CGRect(x: 0, y: 0, width: width, height: width / ratio)
+                    let imageAttributedString = NSAttributedString(attachment: imageAttachment)
+                    
+                    DispatchQueue.main.sync {
+                        imageInfos.append((range: match!.range, image: imageAttributedString))
+                    }
                 }
-                
-                let imageAttachment = NSTextAttachment()
-                imageAttachment.image = image
-                let ratio = image.size.width / image.size.height
-                let width = UIScreen.main.bounds.width
-                imageAttachment.bounds = CGRect(x: 0, y: 0, width: width, height: width / ratio)
-                let imageAttributedString = NSAttributedString(attachment: imageAttachment)
-                
-                DispatchQueue.main.async {
-                    attributedString.replaceCharacters(in: match!.range, with: imageAttributedString)
-                    group.leave()
-                }
+                group.leave()
             }
         }
-
+        
         group.notify(queue: .main) {
+            for imageInfo in imageInfos.sorted(by: { $0.range.location > $1.range.location }) {
+                if let imageAttrString = imageInfo.image {
+                    attributedString.replaceCharacters(in: imageInfo.range, with: imageAttrString)
+                }
+            }
             completion(attributedString)
         }
     }
-    
     private func loadImageAsync(from url: URL, completion: @escaping (UIImage?) -> Void) {
         Task {
             let image = try? await ImageService.fetchImage(url: url)
