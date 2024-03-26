@@ -156,10 +156,11 @@ enum DB {
     static let questionList = [
         CSQuestion(question: "삽입 정렬이 다른 정렬 알고리즘(예: 선택 정렬, 버블 정렬)에 비해 유리한 경우는 어떤 상황인가요?",
                    answer: """
-                   # 프로젝트 소개
+                   프로젝트 소개
                    ![intro](https://github.com/MojitoBar/pins/assets/16567811/e088d4de-4b83-47f2-b7f4-271edeaf4be5)
 
-                   지도 기반 SNS 서비스를 개발함으로써 다양한 기술의 통합적 역량을 높이고자 시작한 프로젝트입니다. <br>
+                   지도 기반 SNS 서비스를 개발함으로써 다양한 기술의 통합적 역량을 높이고자 시작한 프로젝트입니다.
+                   
                    이 프로젝트의 핵심은 사용자가 지도에 핀을 생성하여 커뮤니티와 소통하는 것입니다.
                    """,
                    category: "자료구조", 

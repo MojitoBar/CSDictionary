@@ -5,6 +5,7 @@ import Combine
 final class QuestionDetailView: UIView {
     private var cancellable = Set<AnyCancellable>()
     private let viewModel: QuestionDetailViewModel
+    private let parser: CustomMarkdownParser = CustomMarkdownParser()
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -21,14 +22,18 @@ final class QuestionDetailView: UIView {
         return label
     }()
     private let categoryLabel = CategoryLabel()
-    private let descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontForContentSizeCategory = true
-        label.font = FontManager.getSelectedFont(weight: .regular)
-        label.textColor = UIColor(resource: .text)
-        label.numberOfLines = 0
-        return label
+    private let descriptionLabel: UITextView = {
+        let textView = UITextView()
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        textView.isEditable = false
+        textView.isScrollEnabled = false
+        textView.backgroundColor = .clear
+        textView.textContainerInset = .zero
+        textView.textContainer.lineFragmentPadding = 0
+        textView.adjustsFontForContentSizeCategory = true
+        textView.font = FontManager.getSelectedFont(percent: 1.3, weight: .regular)
+        textView.textColor = UIColor(resource: .text)
+        return textView
     }()
     private let tailQuestionLabel: UILabel = {
         let label = UILabel()
@@ -57,9 +62,9 @@ final class QuestionDetailView: UIView {
                 guard let self = self else { return }
                 self.titleLabel.text = item.question
                 self.categoryLabel.text = item.category
-                if let attributedDescription = try? NSAttributedString(markdown: item.answer, options: .init()) {
-                    self.descriptionLabel.attributedText = attributedDescription
-                }
+                self.parser.parse(markdownText: item.answer, completion: { string in
+                    self.descriptionLabel.attributedText = string
+                })
             }
             .store(in: &cancellable)
     }
