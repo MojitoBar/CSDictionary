@@ -25,6 +25,9 @@
 		B77BE45F2BB19D03000E0DDB /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77BE45E2BB19D03000E0DDB /* QuestionView.swift */; };
 		B77BE4612BB19DFA000E0DDB /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77BE4602BB19DFA000E0DDB /* QuestionViewModel.swift */; };
 		B77BE4632BB19EBA000E0DDB /* CSQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77BE4622BB19EBA000E0DDB /* CSQuestion.swift */; };
+		B77BE4652BB1A942000E0DDB /* QuestionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77BE4642BB1A942000E0DDB /* QuestionDetailViewController.swift */; };
+		B77BE4672BB1A992000E0DDB /* QuestionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77BE4662BB1A992000E0DDB /* QuestionDetailView.swift */; };
+		B77BE4692BB1AA40000E0DDB /* QuestionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77BE4682BB1AA40000E0DDB /* QuestionDetailViewModel.swift */; };
 		B79725302BAB047A00F923A1 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B797252F2BAB047A00F923A1 /* NotificationManager.swift */; };
 		B7A7952B2BA32834009B6171 /* CSDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A7952A2BA32834009B6171 /* CSDetailViewController.swift */; };
 		B7A7952D2BA3296B009B6171 /* CSDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A7952C2BA3296B009B6171 /* CSDetailView.swift */; };
@@ -73,6 +76,9 @@
 		B77BE45E2BB19D03000E0DDB /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		B77BE4602BB19DFA000E0DDB /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
 		B77BE4622BB19EBA000E0DDB /* CSQuestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSQuestion.swift; sourceTree = "<group>"; };
+		B77BE4642BB1A942000E0DDB /* QuestionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetailViewController.swift; sourceTree = "<group>"; };
+		B77BE4662BB1A992000E0DDB /* QuestionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetailView.swift; sourceTree = "<group>"; };
+		B77BE4682BB1AA40000E0DDB /* QuestionDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionDetailViewModel.swift; sourceTree = "<group>"; };
 		B797252F2BAB047A00F923A1 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		B7A7952A2BA32834009B6171 /* CSDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSDetailViewController.swift; sourceTree = "<group>"; };
 		B7A7952C2BA3296B009B6171 /* CSDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSDetailView.swift; sourceTree = "<group>"; };
@@ -173,6 +179,7 @@
 				B7EDEC6E2BA5C2C6009367E2 /* SettingViewController.swift */,
 				B714BDFB2BA6B8FA009FD0F9 /* RandomCardViewController.swift */,
 				B77BE45C2BB19CC0000E0DDB /* QuestionViewController.swift */,
+				B77BE4642BB1A942000E0DDB /* QuestionDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -186,6 +193,7 @@
 				B7CCF84E2BA9BA8F006BB8B3 /* SettingView */,
 				B7039B412BA1A87D00626A9B /* CSListView.swift */,
 				B77BE45E2BB19D03000E0DDB /* QuestionView.swift */,
+				B77BE4662BB1A992000E0DDB /* QuestionDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -198,6 +206,7 @@
 				B7EDEC722BA5C9D4009367E2 /* SettingViewModel.swift */,
 				B7ED67A82BA6DBD00043A71F /* CardViewModel.swift */,
 				B77BE4602BB19DFA000E0DDB /* QuestionViewModel.swift */,
+				B77BE4682BB1AA40000E0DDB /* QuestionDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -379,7 +388,9 @@
 				B7E72B192BAAC87900B2DD99 /* DynamicFontCell.swift in Sources */,
 				B77BE45B2BAD8E6A000E0DDB /* AnalyticsManager.swift in Sources */,
 				B7A7952B2BA32834009B6171 /* CSDetailViewController.swift in Sources */,
+				B77BE4692BB1AA40000E0DDB /* QuestionDetailViewModel.swift in Sources */,
 				B7EDEC732BA5C9D4009367E2 /* SettingViewModel.swift in Sources */,
+				B77BE4672BB1A992000E0DDB /* QuestionDetailView.swift in Sources */,
 				B7C5244E2BA451840076D63A /* ImageService.swift in Sources */,
 				B77BE45D2BB19CC0000E0DDB /* QuestionViewController.swift in Sources */,
 				B7E72B1B2BAACE1A00B2DD99 /* FontManager.swift in Sources */,
@@ -387,6 +398,7 @@
 				B7C5244A2BA44F990076D63A /* CSVideoCollectionView.swift in Sources */,
 				B7ED67A92BA6DBD00043A71F /* CardViewModel.swift in Sources */,
 				B714BDFE2BA6B98A009FD0F9 /* RandomCardView.swift in Sources */,
+				B77BE4652BB1A942000E0DDB /* QuestionDetailViewController.swift in Sources */,
 				B7CCF84D2BA9B948006BB8B3 /* ConfirmManager.swift in Sources */,
 				B75E1A0E2BA837520051A31D /* CategoryFilterCell.swift in Sources */,
 				B7C524462BA43E600076D63A /* CSDatabase.swift in Sources */,

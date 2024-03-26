@@ -67,8 +67,8 @@ extension QuestionViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         AnalyticsManager.logEvent("question_list_item_selected", parameters: ["item": viewModel.item(at: indexPath).question])
         let item = viewModel.item(at: indexPath)
-        //        let detailVC = CSDetailViewController(item: item)
-        //        navigationController?.pushViewController(detailVC, animated: true)
+        let detailVC = QuestionDetailViewController(item: item)
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 
