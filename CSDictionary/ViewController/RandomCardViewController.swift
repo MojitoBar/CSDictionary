@@ -32,7 +32,7 @@ extension RandomCardViewController: UICollectionViewDelegate, UICollectionViewDa
         let type = CollectionViewType(rawValue: collectionView.tag)!
         switch type {
         case .category:
-            let title = DB.category[indexPath.row]
+            let title = DB.SearchSection[indexPath.row]
             let font = UIFont.systemFont(ofSize: 14)
             let textAttributes = [NSAttributedString.Key.font: font]
             let textSize = title.size(withAttributes: textAttributes)
@@ -50,9 +50,9 @@ extension RandomCardViewController: UICollectionViewDelegate, UICollectionViewDa
         let type = CollectionViewType(rawValue: collectionView.tag)!
         switch type {
         case .category:
-            return DB.category.count
+            return DB.CSSections.count
         case .card:
-            return DB.category.count
+            return DB.CSSections.count
         }
     }
     
@@ -63,7 +63,7 @@ extension RandomCardViewController: UICollectionViewDelegate, UICollectionViewDa
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryFilterCell.identifier, for: indexPath) as! CategoryFilterCell
             cell.backgroundColor = .filterBackground
             cell.layer.cornerRadius = 13
-            cell.configure(title: DB.category[indexPath.row])
+            cell.configure(title: DB.CSSections[indexPath.row])
             return cell
         case .card:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCell.identifier, for: indexPath) as! CardCell

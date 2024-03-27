@@ -37,7 +37,7 @@ final class CalloutView: UIView {
         addSubview(contentLabel)
         
         NSLayoutConstraint.activate([
-            emojiLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            emojiLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             emojiLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             emojiLabel.widthAnchor.constraint(equalToConstant: 30),
             emojiLabel.heightAnchor.constraint(equalToConstant: 30),

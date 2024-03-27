@@ -24,7 +24,7 @@ final class TabbarViewController: UITabBarController {
     }
     
     private func setTabBarItem() {
-        let viewControllerList = [CSListViewController(), CSListViewController(), SettingViewController()]
+        let viewControllerList = [CSListViewController(), QuestionViewController(), SettingViewController()]
         for (index, item) in tabBarTitle.enumerated() {
             let listTabBarItem = UITabBarItem(title: item.title, image: UIImage(systemName: item.image), tag: index)
             viewControllerList[index].tabBarItem = listTabBarItem   

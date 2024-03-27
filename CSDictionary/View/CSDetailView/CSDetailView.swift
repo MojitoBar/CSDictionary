@@ -15,7 +15,7 @@ final class CSDetailView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
-        label.font = FontManager.getSelectedFont(percent: 2.5, weight: .bold)
+        label.font = FontManager.getSelectedFont(percent: 2.0, weight: .bold)
         label.textColor = UIColor(resource: .text)
         return label
     }()
@@ -111,11 +111,12 @@ final class CSDetailView: UIView {
             scrollView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
             scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20),
             
-            titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10),
+            categoryLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20),
+            categoryLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+
+            titleLabel.topAnchor.constraint(equalTo: categoryLabel.bottomAnchor, constant: 16),
             titleLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            
-            categoryLabel.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
-            categoryLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            titleLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
         
             summaryLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
             summaryLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
