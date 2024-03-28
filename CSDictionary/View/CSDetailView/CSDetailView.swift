@@ -2,6 +2,7 @@ import UIKit
 import Combine
 
 final class CSDetailView: UIView {
+    private var parser = CustomMarkdownParser()
     private var cancellable = Set<AnyCancellable>()
     private var viewModel: CSDetailViewModel!
     private let scrollView: UIScrollView = {
@@ -26,7 +27,7 @@ final class CSDetailView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
-        label.font = FontManager.getSelectedFont(weight: .bold)
+        label.font = FontManager.getSelectedFont(percent: 1.2, weight: .bold)
         label.textColor = UIColor(resource: .text)
         label.text = "요약 설명"
         return label
@@ -42,7 +43,7 @@ final class CSDetailView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
-        label.font = FontManager.getSelectedFont(weight: .bold)
+        label.font = FontManager.getSelectedFont(percent: 1.2, weight: .bold)
         label.textColor = UIColor(resource: .text)
         label.text = "상세 설명"
         return label
@@ -62,7 +63,7 @@ final class CSDetailView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
-        label.font = FontManager.getSelectedFont(weight: .bold)
+        label.font = FontManager.getSelectedFont(percent: 1.2, weight: .bold)
         label.textColor = UIColor(resource: .text)
         label.text = "관련 영상"
         return label
@@ -89,7 +90,9 @@ final class CSDetailView: UIView {
                 self?.calloutView.setEmoji("💡")
                 self?.calloutView.setContent(item.shortDescription)
                 self?.categoryLabel.text = item.category
-                self?.detailDescription.text = item.description
+                self?.parser.parse(markdownText: item.description, completion: { string in
+                    self?.detailDescription.attributedText = string
+                })
             }
             .store(in: &cancellable)
     }

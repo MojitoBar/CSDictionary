@@ -3,42 +3,46 @@ enum DB {
     static let SearchSection: [String] = ["검색 결과"]
     static let csList = [
         CSItem(
-            name: "Stack",
+            name: "Array",
             shortDescription: """
-            Stack은 후입선출(LIFO: Last In, First Out) 원칙을 따르는 선형 자료구조입니다.
+            배열은 동일한 자료형의 데이터를 연속적인 메모리 공간에 순차적으로 저장하는 자료구조입니다.
             """,
             description: """
-            Stack은 데이터를 저장하고 액세스하는 데 있어서 마지막에 들어간 데이터가 가장 먼저 나오는 방식을 따릅니다. 
-            
-            이는 실생활의 쌓여있는 접시나 책 더미와 유사한 구조로 생각할 수 있습니다.
-            
-            Stack의 주요 연산에는 push (데이터 추가), pop (최근 추가된 데이터 삭제 및 반환), peek/top (스택의 최상단 데이터 확인), 그리고 isEmpty (스택이 비어있는지 확인) 등이 있습니다.
-            
-            이러한 특성 때문에 스택은 다양한 프로그래밍 문제 해결, 특히 재귀 함수, 깊이 우선 탐색(DFS) 등에 유용하게 사용됩니다.
+            배열은 컴퓨터 과학에서 기본적이면서 중요한 자료구조 중 하나입니다.
+
+            배열은 고정된 크기를 가지며, 각 요소는 고유한 인덱스로 식별됩니다.
+            배열의 요소는 메모리상에서 연속적으로 위치하기 때문에, 인덱스를 통한 요소의 접근이 매우 빠르다는 장점이 있습니다. (배열의 인덱스는 보통 0부터 시작합니다.)
+
+            하지만 크기가 고정되어 있기 때문에 배열의 크기를 동적으로 변경하기 어렵고, 크기를 변경하려면 새로운 배열을 생성하고 기존의 데이터를 복사해야 하는 단점이 있습니다.
+
+            ![array](https://github.com/MojitoBar/CSDictionay/assets/16567811/61432e54-0e73-4fd6-8108-8bc79d1ba352)
             """,
             category: "자료구조",
-            urls: ["https://www.youtube.com/watch?v=cyf4HycvxXg",
-                  "https://www.youtube.com/watch?v=3Z2TTzTe7bE&pp=ygUGCHF1ZXVl",
-                  "https://www.youtube.com/watch?v=BdsyG5yP1cQ&pp=ygUGCHF1ZXVl",
-                  "https://www.youtube.com/watch?v=DpcJP-wQWGI",
-                  "https://www.youtube.com/watch?v=Uz-pSps2T-A",
-                  "https://www.youtube.com/watch?v=c1DcQABWypk"]
+            urls: [
+                "https://www.youtube.com/watch?v=py4F7szktbs&pp=ygUFYXJyYXk%3D",
+                "https://www.youtube.com/watch?v=NFETSCJON2M&pp=ygUFYXJyYXk%3D",
+            ]
         ),
         CSItem(
             name: "LinkedList",
             shortDescription: """
-            연결 리스트(LinkedList)는 데이터 항목들이 노드 형태로 이루어지고, 각 노드가 다음 노드를 가리키는 형태의 선형 자료구조입니다.
-            
-            각 노드는 데이터와 다음 노드에 대한 참조(또는 포인터)를 포함합니다.
-            
-            연결 리스트는 데이터를 동적으로 추가하거나 제거하기 용이하여, 크기가 변하는 상황에서 유용합니다.
+            연결 리스트는 데이터 항목들이 노드의 형태로 존재하며, 각 노드가 다음 노드를 가리키는 참조를 통해 연결된 순차적인 자료구조입니다.
             """,
             description: """
-            연결 리스트는 배열과 비교했을 때, 미리 크기를 지정할 필요가 없고, 요소의 삽입과 삭제가 용이하다는 장점이 있습니다. 연결 리스트는 단일 연결 리스트(Singly Linked List), 이중 연결 리스트(Doubly Linked List), 원형 연결 리스트(Circular Linked List) 등 여러 형태가 있습니다.
-            
-            연결 리스트는 스택이나 큐와 같은 다른 자료구조의 기반이 되기도 하며, 해시 테이블의 충돌 해결 방법 중 하나인 체이닝(Chaining)에서도 사용됩니다.
+            연결 리스트는 각 요소(노드)가 데이터와 다음 노드를 가리키는 참조(포인터)를 포함하는 방식으로 데이터를 저장합니다.
+
+            연결 리스트는 동적으로 크기가 변할 수 있으며, 삽입과 삭제가 배열에 비해 용이한 장점이 있습니다.
+            다만, 임의 접근(random access)이 불가능하여 특정 인덱스의 노드에 접근하기 위해서는 처음부터 순차적으로 탐색해야 하는 단점이 있습니다.
+
+            연결 리스트는 단일 연결 리스트(Singly Linked List), 이중 연결 리스트(Doubly Linked List), 원형 연결 리스트(Circular Linked List) 등 다양한 형태가 있습니다.
+
+            ![linkedlist](https://github.com/MojitoBar/CSDictionay/assets/16567811/2b1630f4-0e55-43a5-8d14-1d2a9c932316)
             """,
-            category: "자료구조"
+            category: "자료구조",
+            urls: [
+                "https://www.youtube.com/watch?v=K1PlysPgNZY&pp=ygUKbGlua2VkbGlzdA%3D%3D",
+                "https://www.youtube.com/watch?v=WwfhLC16bis&pp=ygUKbGlua2VkbGlzdA%3D%3D",
+            ]
         ),
         CSItem(
             name: "Binary Tree",
@@ -156,14 +160,26 @@ enum DB {
     static let questionList = [
         CSQuestion(question: "삽입 정렬이 다른 정렬 알고리즘(예: 선택 정렬, 버블 정렬)에 비해 유리한 경우는 어떤 상황인가요?",
                    answer: """
-                   프로젝트 소개
-                   ![intro](https://github.com/MojitoBar/pins/assets/16567811/e088d4de-4b83-47f2-b7f4-271edeaf4be5)
+                   배열은 컴퓨터 과학에서 기본적이면서 중요한 자료구조 중 하나입니다.
 
-                   지도 기반 SNS 서비스를 개발함으로써 다양한 기술의 통합적 역량을 높이고자 시작한 프로젝트입니다.
+                   배열은 고정된 크기를 가지며, 각 요소는 고유한 인덱스로 식별됩니다. 배열의 요소는 메모리상에서 연속적으로 위치하기 때문에, 인덱스를 통한 요소의 접근이 매우 빠르다는 장점이 있습니다.
+
+                   하지만, 크기가 고정되어 있기 때문에 배열의 크기를 동적으로 변경하기 어렵고, 크기를 변경하려면 새로운 배열을 생성하고 기존의 데이터를 복사해야 하는 단점이 있습니다.
+
+                   ![image](https://libapps-au.s3-ap-southeast-2.amazonaws.com/accounts/206137/images/%EB%B0%B0%EC%97%B4_%ED%98%95%ED%83%9C.jpg)
+
+                   ### ㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹ
+
+                   ㅁㄴㅇㄹㅁㄴㅇ **굵은 텍스트** *기울인 텍스트* 잘 되는구나 ~~~
+                   ![image](https://libapps-au.s3-ap-southeast-2.amazonaws.com/accounts/206137/images/%EB%B0%B0%EC%97%B4_%ED%98%95%ED%83%9C.jpg)
                    
-                   이 프로젝트의 핵심은 사용자가 지도에 핀을 생성하여 커뮤니티와 소통하는 것입니다.
+                   # asdfadsfas adfasdf fsfdas
                    
-                   ![intro](https://github.com/MojitoBar/pins/assets/16567811/e088d4de-4b83-47f2-b7f4-271edeaf4be5)
+                   asdfasdfad
+                   
+                   **asdf**
+                   
+                   # asdfasd
                    """,
                    category: "자료구조", 
                    tailQuestion: ["삽입 정렬의 시간 복잡도와 최악의 경우 시간 복잡도는 각각 무엇인가요?"]),

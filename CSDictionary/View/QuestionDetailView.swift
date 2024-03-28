@@ -32,7 +32,6 @@ final class QuestionDetailView: UIView {
         textView.textContainer.lineFragmentPadding = 0
         textView.adjustsFontForContentSizeCategory = true
         textView.font = FontManager.getSelectedFont(percent: 1.3, weight: .regular)
-        textView.textColor = UIColor(resource: .text)
         return textView
     }()
     private let tailQuestionLabel: UILabel = {
@@ -96,6 +95,7 @@ final class QuestionDetailView: UIView {
             tailQuestionLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 25),
             tailQuestionLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             tailQuestionLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
+            tailQuestionLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -20)
         ])
     }
 }
