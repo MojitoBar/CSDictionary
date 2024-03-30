@@ -16,4 +16,20 @@ final class FirestoreService {
             NSLog("Failed to save device: \(error)")
         }
     }
+    
+    func fetchKeywords() async -> [CSItem] {
+        var keywords: [CSItem] = []
+        let keywordsRef = db.collection("keywords").order(by: "keyword")
+        
+        do {
+            let snapshot = try await keywordsRef.getDocuments()
+            for document in snapshot.documents {
+                let keyword = try Firestore.Decoder().decode(CSItem.self, from: document.data())
+                keywords.append(keyword)
+            }
+            return keywords
+        } catch {
+            fatalError()
+        }
+    }
 }

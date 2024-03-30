@@ -56,6 +56,7 @@ final class CSDetailView: UIView {
         label.font = FontManager.getSelectedFont(weight: .regular)
         label.textColor = UIColor(resource: .text)
         label.numberOfLines = 0
+        label.text = "로딩 중 ..."
         return label
     }()
     
@@ -86,7 +87,7 @@ final class CSDetailView: UIView {
     private func setBinding() {
         viewModel.$item
             .sink { [weak self] item in
-                self?.titleLabel.text = item.name
+                self?.titleLabel.text = item.keyword
                 self?.calloutView.setEmoji("💡")
                 self?.calloutView.setContent(item.shortDescription)
                 self?.categoryLabel.text = item.category

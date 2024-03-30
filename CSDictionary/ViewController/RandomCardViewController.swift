@@ -68,8 +68,8 @@ extension RandomCardViewController: UICollectionViewDelegate, UICollectionViewDa
         case .card:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CardCell.identifier, for: indexPath) as! CardCell
             cell.layer.cornerRadius = 13
-            let item = DB.csList[indexPath.row]
-            cell.configure(title: item.name, description: item.shortDescription, category: item.category)
+//            let item = DB.csList[indexPath.row]
+//            cell.configure(title: item.keyword, description: item.shortDescription, category: item.category)
             return cell
         }
     }

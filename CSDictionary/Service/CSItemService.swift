@@ -1,8 +1,8 @@
 import Foundation
 
 enum CSItemService {
-    static func readCSItems() -> [CSItem] {
-        return DB.csList
+    static func readCSItems() async -> [CSItem] {
+        await FirestoreService.shared.fetchKeywords()
     }
     
     static func readQuestions() -> [CSQuestion] {

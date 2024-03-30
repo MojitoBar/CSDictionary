@@ -26,6 +26,7 @@ final class CSListView: UIView {
     
     private func setBinding() {
         viewModel.$items
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] items in
                 self?.tableView.reloadData()
             }

@@ -8,7 +8,7 @@ final class CSDetailViewModel {
     }
     
     func getTitle() -> String {
-        item.name
+        item.keyword
     }
     
     func getShortDescription() -> String {

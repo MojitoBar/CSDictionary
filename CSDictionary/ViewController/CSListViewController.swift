@@ -11,6 +11,14 @@ final class CSListViewController: UIViewController {
         listViewConfigure()
         
         AnalyticsManager.logEvent("cs_list_viewed")
+        
+        fetchCSItems()
+    }
+    
+    func fetchCSItems() {
+        Task {
+            await viewModel.fetchItems()
+        }
     }
     
     override func loadView() {
@@ -50,7 +58,7 @@ extension CSListViewController: UITableViewDelegate, UITableViewDataSource {
         let item = viewModel.item(at: indexPath)
         var content = cell.defaultContentConfiguration()
         cell.selectionStyle = .none
-        content.text = item.name
+        content.text = item.keyword
         content.textProperties.font = FontManager.getSelectedFont()
         cell.accessoryType = .disclosureIndicator
         cell.backgroundColor = UIColor(resource: .background)
@@ -65,7 +73,7 @@ extension CSListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        AnalyticsManager.logEvent("cs_list_item_selected", parameters: ["item": viewModel.item(at: indexPath).name])
+        AnalyticsManager.logEvent("cs_list_item_selected", parameters: ["item": viewModel.item(at: indexPath).keyword])
         let item = viewModel.item(at: indexPath)
         let detailVC = CSDetailViewController(item: item)
         navigationController?.pushViewController(detailVC, animated: true)

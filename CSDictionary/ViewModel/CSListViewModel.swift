@@ -4,14 +4,15 @@ final class CSListViewModel {
     @Published private(set) var items: [CSItem] = []
     private var filteredItems: [CSItem] = []
     
-    init() {
-        items = CSItemService.readCSItems()
-    }
-    
     var isSearching: Bool = false
     
     var sections: [String] {
         isSearching ? ["검색 결과"] : DB.CSSections
+    }
+    
+    func fetchItems() async {
+        items = await CSItemService.readCSItems()
+        print(items)
     }
     
     func item(at indexPath: IndexPath) -> CSItem {
@@ -25,6 +26,6 @@ final class CSListViewModel {
     
     func filterItems(for searchText: String) {
         isSearching = !searchText.isEmpty
-        filteredItems = items.filter { $0.name.lowercased().contains(searchText.lowercased()) }
+        filteredItems = items.filter { $0.keyword.lowercased().contains(searchText.lowercased()) }
     }
 }
