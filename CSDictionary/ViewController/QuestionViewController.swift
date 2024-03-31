@@ -19,7 +19,7 @@ final class QuestionViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        navigationController?.navigationBar.topItem?.title = "질문 리스트"
+        navigationController?.navigationBar.topItem?.title = "문제집"
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = .tabbar

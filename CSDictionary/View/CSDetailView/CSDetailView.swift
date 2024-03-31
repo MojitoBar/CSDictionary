@@ -56,7 +56,7 @@ final class CSDetailView: UIView {
         label.font = FontManager.getSelectedFont(weight: .regular)
         label.textColor = UIColor(resource: .text)
         label.numberOfLines = 0
-        label.text = "로딩 중 ..."
+        label.text = "불러오는 중..."
         return label
     }()
     

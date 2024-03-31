@@ -32,6 +32,7 @@ final class QuestionDetailView: UIView {
         textView.textContainer.lineFragmentPadding = 0
         textView.adjustsFontForContentSizeCategory = true
         textView.font = FontManager.getSelectedFont(percent: 1.3, weight: .regular)
+        textView.text = "불러오는 중..."
         return textView
     }()
     private let tailQuestionLabel: UILabel = {
