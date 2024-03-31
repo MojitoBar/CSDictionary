@@ -20,33 +20,6 @@ final class SettingViewModel {
     }
     
     func option(at indexPath: IndexPath) -> SettingOption {
-        switch indexPath.section {
-        case 0:
-            switch indexPath.row {
-            case 0: return .contactDeveloper
-            case 1: return .addCSKeyword
-            default: return .contactDeveloper
-            }
-        case 1:
-            switch indexPath.row {
-            case 0: return .displayMode
-            case 1: return .textSize
-            case 2: return .leaveReview
-            case 3: return .notificationSetting
-            default: return .displayMode
-            }
-        case 2:
-            switch indexPath.row {
-            case 0: return .clearImageCache
-            default: return .clearImageCache
-            }
-        case 3:
-            switch indexPath.row {
-            case 0: return .removeAds
-            default: return .removeAds
-            }
-        default:
-            return .contactDeveloper
-        }
+        sections[indexPath.section].items[indexPath.row]
     }
 }

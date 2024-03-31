@@ -39,18 +39,18 @@ enum SettingSection: String, CaseIterable {
     case contact = "문의하기"
     case general = "일반"
     case image = "이미지"
-    case donation = "후원하기"
+//    case donation = "후원하기"
     
     var items: [SettingOption] {
         switch self {
         case .contact:
             return [.contactDeveloper, .addCSKeyword]
         case .general:
-            return [.displayMode, .textSize, .leaveReview, .notificationSetting]
+            return [.displayMode, .textSize, .notificationSetting]
         case .image:
             return [.clearImageCache]
-        case .donation:
-            return [.removeAds]
+//        case .donation:
+//            return [.removeAds]
         }
     }
     
@@ -59,11 +59,11 @@ enum SettingSection: String, CaseIterable {
         case .contact:
             return ["envelope", "folder.badge.plus"]
         case .general:
-            return ["display", "textformat.size", "highlighter", "bell"]
+            return ["display", "textformat.size", "bell"]
         case .image:
             return ["photo.on.rectangle"]
-        case .donation:
-            return ["xmark.bin"]
+//        case .donation:
+//            return ["xmark.bin"]
         }
     }
 }
