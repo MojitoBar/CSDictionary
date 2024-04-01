@@ -78,6 +78,7 @@ final class CSDetailView: UIView {
         self.viewModel = viewModel
         setBinding()
         setLayout()
+        setVideoLabelLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -144,9 +145,19 @@ final class CSDetailView: UIView {
             videoCollectionView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             videoCollectionView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
             videoCollectionView.heightAnchor.constraint(equalToConstant: 130),
-            
-            videoCollectionView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -20),
         ])
+    }
+    
+    func setVideoLabelLayout() {
+        if viewModel.getVideoImage().isEmpty {
+            videoLabel.isHidden = true
+            videoCollectionView.isHidden = true
+            detailDescription.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -20).isActive = true
+        } else {
+            videoLabel.isHidden = false
+            videoCollectionView.isHidden = false
+            videoCollectionView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -20).isActive = true
+        }
     }
     
     func collectionViewConfigure(delegate: UICollectionViewDelegate & UICollectionViewDataSource) {
