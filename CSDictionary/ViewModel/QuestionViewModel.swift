@@ -4,14 +4,14 @@ final class QuestionViewModel {
     @Published private(set) var items: [CSQuestion] = []
     private var filteredItems: [CSQuestion] = []
     
-    init() {
-        items = CSItemService.readQuestions()
-    }
-    
     var isSearching: Bool = false
     
     var sections: [String] {
         isSearching ? ["검색 결과"] : DB.CSSections
+    }
+    
+    func fetchItems() async {
+        items = await CSService.readQuestions()
     }
     
     func item(at indexPath: IndexPath) -> CSQuestion {

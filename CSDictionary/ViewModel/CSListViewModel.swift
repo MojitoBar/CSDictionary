@@ -11,8 +11,7 @@ final class CSListViewModel {
     }
     
     func fetchItems() async {
-        items = await CSItemService.readCSItems()
-        print(items)
+        items = await CSService.readCSItems()
     }
     
     func item(at indexPath: IndexPath) -> CSItem {

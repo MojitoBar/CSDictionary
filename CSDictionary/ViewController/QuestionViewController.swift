@@ -11,6 +11,13 @@ final class QuestionViewController: UIViewController {
         listViewConfigure()
         
         AnalyticsManager.logEvent("question_viewed")
+        fetchCSItems()
+    }
+
+    func fetchCSItems() {
+        Task {
+            await viewModel.fetchItems()
+        }
     }
     
     override func loadView() {

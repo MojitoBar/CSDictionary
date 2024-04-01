@@ -32,4 +32,20 @@ final class FirestoreService {
             fatalError()
         }
     }
+    
+    func fetchQuestions() async -> [CSQuestion] {
+        var questions: [CSQuestion] = []
+        let questionsRef = db.collection("questions").order(by: "question")
+        
+        do {
+            let snapshot = try await questionsRef.getDocuments()
+            for document in snapshot.documents {
+                let question = try Firestore.Decoder().decode(CSQuestion.self, from: document.data())
+                questions.append(question)
+            }
+            return questions
+        } catch {
+            fatalError()
+        }
+    }
 }

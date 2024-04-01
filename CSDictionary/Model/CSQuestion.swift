@@ -1,6 +1,6 @@
 import Foundation
 
-struct CSQuestion {
+struct CSQuestion: Codable {
     let question: String
     let answer: String
     let category: String

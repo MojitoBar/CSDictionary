@@ -35,15 +35,6 @@ final class QuestionDetailView: UIView {
         textView.text = "불러오는 중..."
         return textView
     }()
-    private let tailQuestionLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.adjustsFontForContentSizeCategory = true
-        label.font = FontManager.getSelectedFont(percent: 1.5, weight: .bold)
-        label.textColor = UIColor(resource: .text)
-        label.text = "꼬리 질문"
-        return label
-    }()
     init (viewModel: QuestionDetailViewModel) {
         self.viewModel = viewModel
         super.init(frame: .zero)
@@ -74,7 +65,6 @@ final class QuestionDetailView: UIView {
         scrollView.addSubview(titleLabel)
         scrollView.addSubview(categoryLabel)
         scrollView.addSubview(descriptionLabel)
-        scrollView.addSubview(tailQuestionLabel)
         
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
@@ -92,11 +82,7 @@ final class QuestionDetailView: UIView {
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
             descriptionLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             descriptionLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            
-            tailQuestionLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 25),
-            tailQuestionLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            tailQuestionLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            tailQuestionLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -20)
+            descriptionLabel.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -20),
         ])
     }
 }
