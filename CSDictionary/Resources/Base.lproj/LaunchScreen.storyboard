@@ -32,15 +32,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="if1-dU-qz6">
                                 <rect key="frame" x="12" y="778" width="369" height="18"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="개발자분들의">
-                                        <attributes>
-                                            <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            <font key="NSFont" size="15" name="AppleSDGothicNeo-SemiBold"/>
-                                            <font key="NSOriginalFont" size="14" name="AppleSDGothicNeo-SemiBold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=" CS 학습에 도움이 되어 영광입니다.">
+                                    <fragment content="개발자분들의 CS 학습에 도움이 되어 영광입니다.">
                                         <attributes>
                                             <color key="NSColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             <font key="NSFont" size="15" name="AppleSDGothicNeo-SemiBold"/>
@@ -86,6 +78,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="csDictionary" width="1024" height="1024"/>
+        <image name="csDictionary" width="341.33334350585938" height="341.33334350585938"/>
     </resources>
 </document>
