@@ -13,7 +13,7 @@ final class SettingViewController: UIViewController {
             }
         },
         .leaveReview: {
-            if let url = URL(string: "itms-apps://itunes.apple.com/app/1592949834") {
+            if let url = URL(string: "itms-apps://itunes.apple.com/app/6480402361") {
                 UIApplication.shared.open(url)
             }
         },

@@ -44,7 +44,7 @@ enum SettingSection: String, CaseIterable {
     var items: [SettingOption] {
         switch self {
         case .contact:
-            return [.contactDeveloper, .addCSKeyword]
+            return [.leaveReview, .contactDeveloper, .addCSKeyword]
         case .general:
             return [.displayMode, .textSize, .notificationSetting]
         case .image:
@@ -57,7 +57,7 @@ enum SettingSection: String, CaseIterable {
     var icons: [String] {
         switch self {
         case .contact:
-            return ["envelope", "folder.badge.plus"]
+            return ["highlighter", "envelope", "folder.badge.plus"]
         case .general:
             return ["display", "textformat.size", "bell"]
         case .image:
